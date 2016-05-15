@@ -10,6 +10,9 @@
 		AD0163961CE800E500D5A126 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163951CE800E500D5A126 /* ObjectMapper.framework */; };
 		AD0163981CE800FA00D5A126 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163971CE800FA00D5A126 /* Realm.framework */; };
 		AD01639A1CE8010800D5A126 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163991CE8010800D5A126 /* RealmSwift.framework */; };
+		AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */; };
+		AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */; };
+		AD0163A21CE81A1700D5A126 /* Instanstable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0163A11CE81A1700D5A126 /* Instanstable.swift */; };
 		AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583621CE76F900026FD0A /* AppDelegate.swift */; };
 		AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583641CE76F900026FD0A /* RootViewController.swift */; };
 		AD7583681CE76F900026FD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7583661CE76F900026FD0A /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 		AD0163951CE800E500D5A126 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		AD0163971CE800FA00D5A126 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		AD0163991CE8010800D5A126 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassEventListCell.swift; sourceTree = "<group>"; };
+		AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnpassEventListCell.xib; sourceTree = "<group>"; };
+		AD0163A11CE81A1700D5A126 /* Instanstable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instanstable.swift; sourceTree = "<group>"; };
 		AD75835F1CE76F900026FD0A /* ConnpassViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnpassViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7583621CE76F900026FD0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD7583641CE76F900026FD0A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD01639B1CE80C1800D5A126 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD01639C1CE811A600D5A126 /* RootViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AD01639C1CE811A600D5A126 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD7583641CE76F900026FD0A /* RootViewController.swift */,
+				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
+				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
+			);
+			path = RootViewController;
+			sourceTree = "<group>";
+		};
 		AD7583561CE76F900026FD0A = {
 			isa = PBXGroup;
 			children = (
@@ -116,8 +140,8 @@
 		AD7583611CE76F900026FD0A /* ConnpassViewer */ = {
 			isa = PBXGroup;
 			children = (
+				AD01639B1CE80C1800D5A126 /* ViewController */,
 				AD7583621CE76F900026FD0A /* AppDelegate.swift */,
-				AD7583641CE76F900026FD0A /* RootViewController.swift */,
 				AD7583661CE76F900026FD0A /* Main.storyboard */,
 				AD7583691CE76F900026FD0A /* Assets.xcassets */,
 				AD75836B1CE76F900026FD0A /* LaunchScreen.storyboard */,
@@ -149,6 +173,7 @@
 			children = (
 				AD7583911CE770C80026FD0A /* ConnpassManager.swift */,
 				AD7583931CE771010026FD0A /* StringExtension.swift */,
+				AD0163A11CE81A1700D5A126 /* Instanstable.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -271,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
+				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
 			);
@@ -319,8 +345,10 @@
 			files = (
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
+				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,
 				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
 				AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */,
+				AD0163A21CE81A1700D5A126 /* Instanstable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

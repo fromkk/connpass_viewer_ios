@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import Alamofire
 
 public protocol Querable
 {
@@ -141,6 +142,9 @@ extension ConnpassSearch: ConnpassSearchProtocol
 
 public struct ConnpassResponse: Mappable
 {
+    public typealias ConnpassCompletion = (response: ConnpassResponse) -> Void
+    public typealias ConnpassFailure    = (error: NSError) -> Void
+    
     var start: Int = 0
     var returned: Int = 0
     var available: Int = 0
@@ -154,12 +158,45 @@ public struct ConnpassResponse: Mappable
         start <- map["results_start"]
         events <- map["events"]
     }
+    
+    public static func fetch(search: ConnpassSearch, completion: ConnpassCompletion, failure: ConnpassFailure) -> Void
+    {
+        Alamofire.request(.GET, search.absoluteString)
+            .responseJSON {(response: Response<AnyObject, NSError>) in
+                switch response.result
+                {
+                case .Success(let value):
+                    if let response = Mapper<ConnpassResponse>().map(value)
+                    {
+                        completion(response: response)
+                    }
+                    break
+                case .Failure(let error):
+                    failure(error: error)
+                    break
+                }
+        }
+    }
 }
 
 public enum ConnpassEventType: String
 {
     case Participation = "participation"
     case Advertisement = "advertisement"
+}
+
+public struct ConnpassSeries: Mappable
+{
+    var seriesId: Int = 0
+    var title: String = ""
+    var url: String = ""
+    
+    public init?(_ map: Map) {}
+    public mutating func mapping(map: Map) {
+        seriesId <- map["id"]
+        title <- map["title"]
+        url <- map["url"]
+    }
 }
 
 public struct ConnpassEvent: Mappable
@@ -174,7 +211,7 @@ public struct ConnpassEvent: Mappable
     var endedAt: String = ""
     var limit:Int = 0
     var eventType: String = ""
-    var series: [String:AnyObject] = [:]
+    var series: ConnpassSeries?
     var address: String = ""
     var place: String = ""
     var lat: Double = 0.0

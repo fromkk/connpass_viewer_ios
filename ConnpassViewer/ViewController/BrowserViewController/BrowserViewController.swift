@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-public final class WebViewController: UIViewController
+public final class BrowserViewController: UIViewController
 {
     public var url: NSURL? {
         didSet {
@@ -37,26 +37,35 @@ public final class WebViewController: UIViewController
     public lazy var webView: WKWebView = {
         let result: WKWebView = WKWebView()
         result.navigationDelegate = self
+        result.addObserver(self, forKeyPath: "estimatedProgress", options: [.New], context: nil)
         return result
     }()
     
     public lazy var progressView: UIProgressView = {
         let result: UIProgressView = UIProgressView()
-        result.translatesAutoresizingMaskIntoConstraints = false
-        if let navigationController: UINavigationController = self.navigationController
-            ,let navigationBar: UINavigationBar = self.navigationController?.navigationBar
-        {
-            navigationController.view.addConstraints([
-                NSLayoutConstraint(item: navigationBar, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: result, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0),
-                NSLayoutConstraint(item: navigationBar, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: result, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0),
-                NSLayoutConstraint(item: navigationBar, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: result, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0)
-                ])
-        }
         return result
     }()
+    
+    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard let keyPath = keyPath else
+        {
+            return
+        }
+        
+        if keyPath == "estimatedProgress" && self.webView.isEqual(object)
+        {
+            self.progressView.progress = Float(self.webView.estimatedProgress)
+            self.progressView.hidden = 1.0 == self.progressView.progress
+        }
+    }
+    
+    deinit
+    {
+        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+    }
 }
 
-extension WebViewController
+extension BrowserViewController
 {
     public override func loadView() {
         super.loadView()
@@ -68,24 +77,14 @@ extension WebViewController
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        self.progressView.frame = CGRect(x: 0.0, y: (self.navigationController?.navigationBar.frame.size.height ?? 0.0) - 1.0, width: self.navigationController?.navigationBar.frame.size.width ?? 0.0, height: 1.0)
         self.webView.frame = self.view.bounds
     }
 }
 
-extension WebViewController: WKNavigationDelegate
+extension BrowserViewController: WKNavigationDelegate
 {
     public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.title = webView.title
-    }
-}
-
-public final class BrowserViewController: UINavigationController
-{
-    public init(url: NSURL) {
-        super.init(rootViewController: WebViewController(url: url))
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

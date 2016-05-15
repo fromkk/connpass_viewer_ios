@@ -159,7 +159,7 @@ extension RootViewController
             self?.activityIndicator.stopAnimating()
             self?.event = response
             self?.tableView.reloadData()
-            self?.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+            self?.tableView.scrollRectToVisible(CGRect.zero, animated: true)
             self?.request = nil
         }) { [weak self] (error) in
             refreshControl?.endRefreshing()

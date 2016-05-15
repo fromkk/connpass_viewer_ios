@@ -27,6 +27,9 @@
 		AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583911CE770C80026FD0A /* ConnpassManager.swift */; };
 		AD7583941CE771010026FD0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583931CE771010026FD0A /* StringExtension.swift */; };
 		AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7583971CE772030026FD0A /* Alamofire.framework */; };
+		AD92F2651CE88E830020652C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD92F2641CE88E830020652C /* SearchView.swift */; };
+		AD92F2691CE89AA80020652C /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD92F26B1CE89AA80020652C /* SearchView.xib */; };
+		AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD92F2731CE89AFC0020652C /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,11 @@
 		AD7583931CE771010026FD0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		AD7583951CE771F70026FD0A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AD7583971CE772030026FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		AD92F2641CE88E830020652C /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		AD92F26A1CE89AA80020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchView.xib; sourceTree = "<group>"; };
+		AD92F26D1CE89AAF0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchView.strings; sourceTree = "<group>"; };
+		AD92F2721CE89AFC0020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD92F2741CE89AFE0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,8 @@
 				AD7583641CE76F900026FD0A /* RootViewController.swift */,
 				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
 				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
+				AD92F2641CE88E830020652C /* SearchView.swift */,
+				AD92F26B1CE89AA80020652C /* SearchView.xib */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -156,6 +166,7 @@
 		AD7583611CE76F900026FD0A /* ConnpassViewer */ = {
 			isa = PBXGroup;
 			children = (
+				AD92F26E1CE89ADE0020652C /* Resources */,
 				AD01639B1CE80C1800D5A126 /* ViewController */,
 				AD7583621CE76F900026FD0A /* AppDelegate.swift */,
 				AD7583661CE76F900026FD0A /* Main.storyboard */,
@@ -206,6 +217,14 @@
 				AD7583951CE771F70026FD0A /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD92F26E1CE89ADE0020652C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD92F2731CE89AFC0020652C /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +296,7 @@
 				TargetAttributes = {
 					AD75835E1CE76F900026FD0A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = K84E4S7G4C;
 					};
 					AD7583721CE76F910026FD0A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -295,6 +315,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = AD7583561CE76F900026FD0A;
 			productRefGroup = AD7583601CE76F900026FD0A /* Products */;
@@ -314,6 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
+				AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */,
+				AD92F2691CE89AA80020652C /* SearchView.xib in Resources */,
 				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
@@ -362,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
+				AD92F2651CE88E830020652C /* SearchView.swift in Sources */,
 				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
 				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
@@ -422,6 +446,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		AD92F26B1CE89AA80020652C /* SearchView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD92F26A1CE89AA80020652C /* Base */,
+				AD92F26D1CE89AAF0020652C /* ja */,
+			);
+			name = SearchView.xib;
+			sourceTree = "<group>";
+		};
+		AD92F2731CE89AFC0020652C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD92F2721CE89AFC0020652C /* Base */,
+				AD92F2741CE89AFE0020652C /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -446,6 +488,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -492,6 +535,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -514,6 +558,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -523,6 +570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -530,6 +578,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -539,6 +590,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

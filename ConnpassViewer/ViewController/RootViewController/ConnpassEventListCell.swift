@@ -16,9 +16,9 @@ public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
     }
     public static var xibBundle: NSBundle?
     
-    @IBOutlet public var bgView: UIView!
-    @IBOutlet public var titleLabel: UILabel!
-    @IBOutlet public var dateLabel: UILabel!
+    @IBOutlet public weak var bgView: UIView!
+    @IBOutlet public weak var titleLabel: UILabel!
+    @IBOutlet public weak var dateLabel: UILabel!
     public var event: ConnpassEvent? {
         didSet {
             guard let event = event else

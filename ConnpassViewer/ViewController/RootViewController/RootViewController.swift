@@ -15,6 +15,7 @@ public final class RootViewController: UITableViewController {
     let connpass: ConnpassSearch = ConnpassSearch()
     var request: Request?
     var event: ConnpassResponse?
+    var showSearch: Bool = false
     lazy var logoImageView: UIImageView = {
         let result: UIImageView = UIImageView(image: UIImage(named: "connpass_logo"))
         result.contentMode = UIViewContentMode.ScaleAspectFit
@@ -34,12 +35,30 @@ public final class RootViewController: UITableViewController {
         refresher.addTarget(self, action: #selector(self.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         return refresher
     }()
+    private lazy var searchButton: UIBarButtonItem = {
+        let result: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_search"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.onSearchButtonDidTapped(_:)))
+        return result
+    }()
+    private lazy var searchView: SearchView = {
+        do
+        {
+            let searchView: SearchView = try SearchView.instantiableView(withOwner: self)
+            searchView.searchTextField.delegate = self
+            searchView.searchButton.addTarget(self, action: #selector(self.onSearchExecuteButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            return searchView
+        } catch
+        {
+            fatalError()
+        }
+    }()
     
     public override func loadView() {
         super.loadView()
         
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1.0)
         self.navigationItem.titleView = self.logoImageView
         self.navigationItem.leftBarButtonItem = self.leftNavigationItem
+        self.navigationItem.rightBarButtonItem = self.searchButton
         
         self.tableView.addSubview(self.refresher)
         if let nib: UINib = ConnpassEventListCell.instantiableXib
@@ -54,10 +73,79 @@ public final class RootViewController: UITableViewController {
         self.refresh(nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.searchView.frame = self.view.bounds
+    }
 
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+private protocol RootViewControllerEvents
+{
+    func onSearchButtonDidTapped(button: UIBarButtonItem?) -> Void
+    func onSearchExecuteButtonDidTapped(button: UIButton?) -> Void
+}
+
+extension RootViewController: RootViewControllerEvents
+{
+    @objc private func onSearchButtonDidTapped(button: UIBarButtonItem?) {
+        self.showSearch = !self.showSearch
+        if false == self.showSearch
+        {
+            if self.searchView.searchTextField.isFirstResponder()
+            {
+                self.searchView.searchTextField.resignFirstResponder()
+            }
+            self.searchView.hide({ 
+                if self.view.subviews.contains(self.searchView)
+                {
+                    self.searchView.removeFromSuperview()
+                }
+            })
+        } else
+        {
+            if !self.view.subviews.contains(self.searchView)
+            {
+                self.view.addSubview(self.searchView)
+            }
+            self.searchView.searchTextField.text = nil
+            self.searchView.show({ [weak self] in
+                self?.searchView.searchTextField.becomeFirstResponder()
+            })
+        }
+    }
+    
+    @objc private func onSearchExecuteButtonDidTapped(button: UIButton?)
+    {
+        guard let searchText: String = self.searchView.searchTextField.text else
+        {
+            return
+        }
+        
+        guard 0 != searchText.characters.count else
+        {
+            return
+        }
+        
+        self.connpass.keyword(searchText)
+        .start(0)
+        self.refresh(nil)
+        self.onSearchButtonDidTapped(nil)
+    }
+}
+
+extension RootViewController: UITextFieldDelegate
+{
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.onSearchExecuteButtonDidTapped(nil)
+        return true
     }
 }
 
@@ -71,6 +159,7 @@ extension RootViewController
             self?.activityIndicator.stopAnimating()
             self?.event = response
             self?.tableView.reloadData()
+            self?.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
             self?.request = nil
         }) { [weak self] (error) in
             refreshControl?.endRefreshing()
@@ -131,7 +220,6 @@ extension RootViewController
         if self.event?.events.count > indexPath.row
             , let event: ConnpassEvent = self.event?.events[indexPath.row]
         {
-            print(event)
             guard let url: NSURL = NSURL(string: event.eventUrl) else
             {
                 return

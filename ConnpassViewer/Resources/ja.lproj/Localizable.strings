@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  ConnpassViewer
+
+  Created by Kazuya Ueoka on 2016/05/15.
+  Copyright © 2016年 fromKK. All rights reserved.
+*/
+"error" = "エラー";

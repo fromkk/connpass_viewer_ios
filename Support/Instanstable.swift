@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum InstantiableError: ErrorType
+{
+    case InstantiableFailure
+}
+
 public protocol InstantiableXIB : class
 {
     static var xibFilename: String? { get }
@@ -22,8 +27,13 @@ extension InstantiableXIB where Self: UIView
         return UINib(nibName: xibFilename, bundle: xibBundle)
     }
     
-    public static func instantiableView(withOwner owner: AnyObject) -> Self? {
-        return instantiableXib.instantiateWithOwner(owner, options: nil).first as? Self
+    public static func instantiableView(withOwner owner: AnyObject) throws -> Self {
+        guard let result: Self = instantiableXib.instantiateWithOwner(owner, options: nil).first as? Self else
+        {
+            throw InstantiableError.InstantiableFailure
+        }
+        
+        return result
     }
 }
 

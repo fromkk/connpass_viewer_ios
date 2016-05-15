@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchView" customModule="ConnpassViewer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5dA-Ac-yTk">
+                    <rect key="frame" x="16" y="77.5" width="496" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-66-ahN">
+                    <rect key="frame" x="520" y="70" width="64" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1CE-zG-bYh"/>
+                        <constraint firstAttribute="width" constant="64" id="K2T-de-02g"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Search">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5dA-Ac-yTk" firstAttribute="centerY" secondItem="Dth-66-ahN" secondAttribute="centerY" id="9WX-i5-usK"/>
+                <constraint firstItem="5dA-Ac-yTk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="A3y-fI-v8D"/>
+                <constraint firstItem="Dth-66-ahN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="GyM-CH-UU1"/>
+                <constraint firstAttribute="trailing" secondItem="Dth-66-ahN" secondAttribute="trailing" constant="16" id="tCy-y2-a7f"/>
+                <constraint firstItem="Dth-66-ahN" firstAttribute="leading" secondItem="5dA-Ac-yTk" secondAttribute="trailing" constant="8" id="utn-vI-eHa"/>
+                <constraint firstItem="5dA-Ac-yTk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="xG7-pD-tHQ"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="xG7-pD-tHQ"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="searchButton" destination="Dth-66-ahN" id="ypK-R5-u0P"/>
+                <outlet property="searchTextField" destination="5dA-Ac-yTk" id="0Su-aN-e6c"/>
+            </connections>
+        </view>
+    </objects>
+</document>

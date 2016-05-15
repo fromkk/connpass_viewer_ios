@@ -13,6 +13,10 @@
 		AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */; };
 		AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */; };
 		AD0163A21CE81A1700D5A126 /* Instanstable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0163A11CE81A1700D5A126 /* Instanstable.swift */; };
+		AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
+		AD5E123C1CE8607D00FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
+		AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */; };
+		AD5E12431CE8690F00FF9AAE /* NSDateExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12421CE8690F00FF9AAE /* NSDateExtensionTest.swift */; };
 		AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583621CE76F900026FD0A /* AppDelegate.swift */; };
 		AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583641CE76F900026FD0A /* RootViewController.swift */; };
 		AD7583681CE76F900026FD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7583661CE76F900026FD0A /* Main.storyboard */; };
@@ -49,6 +53,9 @@
 		AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassEventListCell.swift; sourceTree = "<group>"; };
 		AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnpassEventListCell.xib; sourceTree = "<group>"; };
 		AD0163A11CE81A1700D5A126 /* Instanstable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instanstable.swift; sourceTree = "<group>"; };
+		AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		AD5E12421CE8690F00FF9AAE /* NSDateExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionTest.swift; sourceTree = "<group>"; };
 		AD75835F1CE76F900026FD0A /* ConnpassViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnpassViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7583621CE76F900026FD0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD7583641CE76F900026FD0A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 		AD01639B1CE80C1800D5A126 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AD5E123D1CE8609000FF9AAE /* BrowserViewController */,
 				AD01639C1CE811A600D5A126 /* RootViewController */,
 			);
 			path = ViewController;
@@ -113,6 +121,14 @@
 				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
 			);
 			path = RootViewController;
+			sourceTree = "<group>";
+		};
+		AD5E123D1CE8609000FF9AAE /* BrowserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */,
+			);
+			path = BrowserViewController;
 			sourceTree = "<group>";
 		};
 		AD7583561CE76F900026FD0A = {
@@ -155,6 +171,7 @@
 			children = (
 				AD7583771CE76F910026FD0A /* ConnpassViewerTests.swift */,
 				AD7583791CE76F910026FD0A /* Info.plist */,
+				AD5E12421CE8690F00FF9AAE /* NSDateExtensionTest.swift */,
 			);
 			path = ConnpassViewerTests;
 			sourceTree = "<group>";
@@ -174,6 +191,7 @@
 				AD7583911CE770C80026FD0A /* ConnpassManager.swift */,
 				AD7583931CE771010026FD0A /* StringExtension.swift */,
 				AD0163A11CE81A1700D5A126 /* Instanstable.swift */,
+				AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -344,7 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
+				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
+				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
 				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,
 				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
 				AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */,
@@ -356,6 +376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5E12431CE8690F00FF9AAE /* NSDateExtensionTest.swift in Sources */,
+				AD5E123C1CE8607D00FF9AAE /* NSDateExtension.swift in Sources */,
 				AD7583781CE76F910026FD0A /* ConnpassViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +519,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +535,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

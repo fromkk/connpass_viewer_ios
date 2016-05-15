@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVc-7l-k4e">
-                    <rect key="frame" x="6" y="6" width="588" height="588"/>
+                    <rect key="frame" x="6" y="6" width="588" height="592"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPN-F0-51R">
                             <rect key="frame" x="6" y="6" width="576" height="19.5"/>
@@ -42,11 +42,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="uVc-7l-k4e" secondAttribute="trailing" constant="6" id="59n-MU-MtN"/>
-                <constraint firstAttribute="bottom" secondItem="uVc-7l-k4e" secondAttribute="bottom" constant="6" id="BF0-gJ-2z6"/>
+                <constraint firstAttribute="bottom" secondItem="uVc-7l-k4e" secondAttribute="bottom" constant="2" id="BF0-gJ-2z6"/>
                 <constraint firstItem="uVc-7l-k4e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="Och-VI-rcz"/>
                 <constraint firstItem="uVc-7l-k4e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="awB-sB-vg6"/>
             </constraints>
             <connections>
+                <outlet property="bgView" destination="uVc-7l-k4e" id="U0b-ld-bXj"/>
                 <outlet property="dateLabel" destination="hBd-h2-8iX" id="XBB-Wk-h4b"/>
                 <outlet property="titleLabel" destination="oPN-F0-51R" id="WFW-0S-N8a"/>
             </connections>

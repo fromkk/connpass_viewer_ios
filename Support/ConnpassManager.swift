@@ -72,7 +72,6 @@ public class ConnpassSearch
         return "\(self.domain)\(self.path)?\(self.queryString)"
     }
     public var url: NSURL? {
-        print(self.absoluteString)
         return NSURL(string: self.absoluteString)
     }
 }
@@ -140,7 +139,7 @@ extension ConnpassSearch: ConnpassSearchProtocol
     }
 }
 
-public struct ConnpassResponse: Mappable
+public class ConnpassResponse: Mappable
 {
     public typealias ConnpassCompletion = (response: ConnpassResponse) -> Void
     public typealias ConnpassFailure    = (error: NSError) -> Void
@@ -150,18 +149,18 @@ public struct ConnpassResponse: Mappable
     var available: Int = 0
     var events: [ConnpassEvent] = []
     
-    public init?(_ map: Map) {}
+    public required init(_ map: Map) {}
     
-    public mutating func mapping(map: Map) {
+    public func mapping(map: Map) {
         returned <- map["results_returned"]
         available <- map["results_available"]
         start <- map["results_start"]
         events <- map["events"]
     }
     
-    public static func fetch(search: ConnpassSearch, completion: ConnpassCompletion, failure: ConnpassFailure) -> Void
+    public static func fetch(search: ConnpassSearch, completion: ConnpassCompletion, failure: ConnpassFailure) -> Request
     {
-        Alamofire.request(.GET, search.absoluteString)
+        return Alamofire.request(.GET, search.absoluteString)
             .responseJSON {(response: Response<AnyObject, NSError>) in
                 switch response.result
                 {
@@ -175,6 +174,47 @@ public struct ConnpassResponse: Mappable
                     failure(error: error)
                     break
                 }
+        }
+    }
+    
+    public func hasNext() -> Bool
+    {
+        return self.available > self.start + self.returned
+    }
+    
+    public func next(search: ConnpassSearch, completion: ConnpassCompletion, failure: ConnpassFailure) -> Request
+    {
+        search.start(self.start + self.returned)
+        return Alamofire.request(.GET, search.absoluteString)
+        .responseJSON { (response: Response<AnyObject, NSError>) in
+            switch response.result
+            {
+            case .Success(let value):
+                if let start: Int = value["results_start"] as? Int
+                {
+                    self.start = start
+                }
+                if let returned: Int = value["results_returned"] as? Int
+                {
+                    self.returned = returned
+                }
+                if let available: Int = value["results_available"] as? Int
+                {
+                    self.available = available
+                }
+                
+                if let events: [[String:AnyObject]] = value["events"] as? [[String:AnyObject]]
+                {
+                    self.events += events.flatMap {
+                        Mapper<ConnpassEvent>().map($0)
+                    }
+                    completion(response: self)
+                }
+                break
+            case .Failure(let error):
+                failure(error: error)
+                break
+            }
         }
     }
 }
@@ -246,5 +286,15 @@ public struct ConnpassEvent: Mappable
         accepted <- map["accepted"]
         waiting <- map["waiting"]
         updatedAt <- map["updated_at"]
+    }
+    
+    public func startedDate() -> NSDate?
+    {
+        return self.startedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ssZZZZ")
+    }
+    
+    public func endedDate() -> NSDate?
+    {
+        return self.endedAt.dateFromFormat("yyyy-MM-dd'T'HH:mm:ssZZZZ")
     }
 }

@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0163961CE800E500D5A126 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163951CE800E500D5A126 /* ObjectMapper.framework */; };
+		AD0163981CE800FA00D5A126 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163971CE800FA00D5A126 /* Realm.framework */; };
+		AD01639A1CE8010800D5A126 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0163991CE8010800D5A126 /* RealmSwift.framework */; };
 		AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583621CE76F900026FD0A /* AppDelegate.swift */; };
-		AD7583651CE76F900026FD0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583641CE76F900026FD0A /* ViewController.swift */; };
+		AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583641CE76F900026FD0A /* RootViewController.swift */; };
 		AD7583681CE76F900026FD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7583661CE76F900026FD0A /* Main.storyboard */; };
 		AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD7583691CE76F900026FD0A /* Assets.xcassets */; };
 		AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD75836B1CE76F900026FD0A /* LaunchScreen.storyboard */; };
 		AD7583781CE76F910026FD0A /* ConnpassViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583771CE76F910026FD0A /* ConnpassViewerTests.swift */; };
 		AD7583831CE76F910026FD0A /* ConnpassViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583821CE76F910026FD0A /* ConnpassViewerUITests.swift */; };
+		AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583911CE770C80026FD0A /* ConnpassManager.swift */; };
+		AD7583941CE771010026FD0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583931CE771010026FD0A /* StringExtension.swift */; };
+		AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7583971CE772030026FD0A /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD0163951CE800E500D5A126 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		AD0163971CE800FA00D5A126 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		AD0163991CE8010800D5A126 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		AD75835F1CE76F900026FD0A /* ConnpassViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnpassViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7583621CE76F900026FD0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD7583641CE76F900026FD0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD7583641CE76F900026FD0A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AD7583671CE76F900026FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD7583691CE76F900026FD0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD75836C1CE76F900026FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +56,10 @@
 		AD75837E1CE76F910026FD0A /* ConnpassViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnpassViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7583821CE76F910026FD0A /* ConnpassViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassViewerUITests.swift; sourceTree = "<group>"; };
 		AD7583841CE76F910026FD0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD7583911CE770C80026FD0A /* ConnpassManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassManager.swift; sourceTree = "<group>"; };
+		AD7583931CE771010026FD0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		AD7583951CE771F70026FD0A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		AD7583971CE772030026FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD01639A1CE8010800D5A126 /* RealmSwift.framework in Frameworks */,
+				AD0163981CE800FA00D5A126 /* Realm.framework in Frameworks */,
+				AD0163961CE800E500D5A126 /* ObjectMapper.framework in Frameworks */,
+				AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +94,8 @@
 		AD7583561CE76F900026FD0A = {
 			isa = PBXGroup;
 			children = (
+				AD75839B1CE772FF0026FD0A /* Frameworks */,
+				AD7583901CE770A50026FD0A /* Support */,
 				AD7583611CE76F900026FD0A /* ConnpassViewer */,
 				AD7583761CE76F910026FD0A /* ConnpassViewerTests */,
 				AD7583811CE76F910026FD0A /* ConnpassViewerUITests */,
@@ -98,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7583621CE76F900026FD0A /* AppDelegate.swift */,
-				AD7583641CE76F900026FD0A /* ViewController.swift */,
+				AD7583641CE76F900026FD0A /* RootViewController.swift */,
 				AD7583661CE76F900026FD0A /* Main.storyboard */,
 				AD7583691CE76F900026FD0A /* Assets.xcassets */,
 				AD75836B1CE76F900026FD0A /* LaunchScreen.storyboard */,
@@ -125,6 +144,27 @@
 			path = ConnpassViewerUITests;
 			sourceTree = "<group>";
 		};
+		AD7583901CE770A50026FD0A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AD7583911CE770C80026FD0A /* ConnpassManager.swift */,
+				AD7583931CE771010026FD0A /* StringExtension.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		AD75839B1CE772FF0026FD0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0163991CE8010800D5A126 /* RealmSwift.framework */,
+				AD0163971CE800FA00D5A126 /* Realm.framework */,
+				AD0163951CE800E500D5A126 /* ObjectMapper.framework */,
+				AD7583971CE772030026FD0A /* Alamofire.framework */,
+				AD7583951CE771F70026FD0A /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +175,7 @@
 				AD75835B1CE76F900026FD0A /* Sources */,
 				AD75835C1CE76F900026FD0A /* Frameworks */,
 				AD75835D1CE76F900026FD0A /* Resources */,
+				AD75839A1CE772590026FD0A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,12 +292,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD75839A1CE772590026FD0A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD75835B1CE76F900026FD0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD7583651CE76F900026FD0A /* ViewController.swift in Sources */,
+				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
+				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
+				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
 				AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +464,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
@@ -412,6 +479,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
@@ -484,6 +555,7 @@
 				AD7583891CE76F910026FD0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD75838A1CE76F910026FD0A /* Build configuration list for PBXNativeTarget "ConnpassViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +564,7 @@
 				AD75838C1CE76F910026FD0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD75838D1CE76F910026FD0A /* Build configuration list for PBXNativeTarget "ConnpassViewerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +573,7 @@
 				AD75838F1CE76F910026FD0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

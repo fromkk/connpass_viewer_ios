@@ -84,7 +84,7 @@ extension ConnpassSearch: ConnpassSearchProtocol
     }
     
     public func keyword(keyword: String) -> Self {
-        self.queries["keyword"] = keyword
+        self.queries["keyword"] = keyword.stringByReplacingOccurrencesOfString(" ", withString: ",")
         return self
     }
     

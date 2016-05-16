@@ -123,7 +123,7 @@ extension RootViewController: RootViewControllerEvents
     
     @objc private func onSearchExecuteButtonDidTapped(button: UIButton?)
     {
-        guard let searchText: String = self.searchView.searchTextField.text else
+        guard let searchText: String = self.searchView.searchTextField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) else
         {
             return
         }

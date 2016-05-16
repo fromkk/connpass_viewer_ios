@@ -48,7 +48,17 @@ public final class RootViewController: UITableViewController {
             return searchView
         } catch
         {
-            fatalError()
+            fatalError("SearchView initializa failed")
+        }
+    }()
+    private lazy var footerView: FooterView = {
+        do
+        {
+            let result: FooterView = try FooterView.instantiableView(withOwner: self)
+            return result
+        } catch
+        {
+            fatalError("FooterView initializa failed")
         }
     }()
     
@@ -179,6 +189,21 @@ extension RootViewController
         let alertController: UIAlertController = UIAlertController(title: NSLocalizedString("error", comment: "error"), message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    func showFooterView() -> Void
+    {
+        let footerView: FooterView = self.footerView
+        footerView.activityIndicator.startAnimating()
+        footerView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 64.0)
+        self.tableView.tableFooterView = footerView
+    }
+    
+    func hideFooterView() -> Void
+    {
+        let footerView: FooterView = self.footerView
+        footerView.activityIndicator.stopAnimating()
+        self.tableView.tableFooterView = nil
+    }
 }
 
 extension RootViewController
@@ -253,9 +278,11 @@ extension RootViewController
         
         guard self.event?.hasNext() ?? false else
         {
+            self.hideFooterView()
             return
         }
         
+        self.showFooterView()
         self.activityIndicator.startAnimating()
         self.request = self.event?.next(self.connpass, completion: { [weak self] (response) in
             self?.tableView.reloadData()

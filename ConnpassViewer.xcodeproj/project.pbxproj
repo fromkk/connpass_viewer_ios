@@ -30,6 +30,8 @@
 		AD92F2651CE88E830020652C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD92F2641CE88E830020652C /* SearchView.swift */; };
 		AD92F2691CE89AA80020652C /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD92F26B1CE89AA80020652C /* SearchView.xib */; };
 		AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD92F2731CE89AFC0020652C /* Localizable.strings */; };
+		ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAB86B41CEA85BF0032091B /* FooterView.xib */; };
+		ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB86B81CEA861F0032091B /* FooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		AD92F26D1CE89AAF0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchView.strings; sourceTree = "<group>"; };
 		AD92F2721CE89AFC0020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD92F2741CE89AFE0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADAB86B41CEA85BF0032091B /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		ADAB86B81CEA861F0032091B /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
 				AD92F2641CE88E830020652C /* SearchView.swift */,
 				AD92F26B1CE89AA80020652C /* SearchView.xib */,
+				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
+				ADAB86B81CEA861F0032091B /* FooterView.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */,
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
 				AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */,
 				AD92F2691CE89AA80020652C /* SearchView.xib in Resources */,
@@ -387,6 +394,7 @@
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
 				AD92F2651CE88E830020652C /* SearchView.swift in Sources */,
 				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
+				ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
 				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
 				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,

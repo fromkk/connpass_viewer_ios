@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SafariServices
+import RealmSwift
 
 public final class RootViewController: UITableViewController {
 
@@ -147,6 +148,26 @@ extension RootViewController: RootViewControllerEvents
         .start(0)
         self.refresh(nil)
         self.onSearchButtonDidTapped(nil)
+        
+        if let latest: History = History.latest
+        {
+            if latest.word == searchText
+            {
+                return
+            }
+        }
+        
+        let realm: Realm = Realm.sharedRealm()
+        do {
+            let history :History = History()
+            history.word = searchText
+            try realm.write({
+                realm.add(history)
+            })
+        } catch
+        {
+            fatalError("History write failed")
+        }
     }
 }
 

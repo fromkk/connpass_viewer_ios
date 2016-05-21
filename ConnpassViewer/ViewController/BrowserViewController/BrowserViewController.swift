@@ -80,6 +80,12 @@ extension BrowserViewController
         self.progressView.frame = CGRect(x: 0.0, y: (self.navigationController?.navigationBar.frame.size.height ?? 0.0) - 1.0, width: self.navigationController?.navigationBar.frame.size.width ?? 0.0, height: 1.0)
         self.webView.frame = self.view.bounds
     }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.progressView.hidden = true
+    }
 }
 
 extension BrowserViewController: WKNavigationDelegate

@@ -6,3 +6,5 @@
   Copyright © 2016年 fromKK. All rights reserved.
 */
 "error" = "Error";
+"completion" = "Complete";
+"close" = "Close";

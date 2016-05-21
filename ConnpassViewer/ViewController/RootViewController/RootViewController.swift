@@ -40,18 +40,6 @@ public final class RootViewController: UITableViewController {
         let result: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_search"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.onSearchButtonDidTapped(_:)))
         return result
     }()
-    private lazy var searchView: SearchView = {
-        do
-        {
-            let searchView: SearchView = try SearchView.instantiableView(withOwner: self)
-            searchView.searchTextField.delegate = self
-            searchView.searchButton.addTarget(self, action: #selector(self.onSearchExecuteButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            return searchView
-        } catch
-        {
-            fatalError("SearchView initializa failed")
-        }
-    }()
     private lazy var footerView: FooterView = {
         do
         {
@@ -84,12 +72,6 @@ public final class RootViewController: UITableViewController {
         self.refresh(nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    public override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        self.searchView.frame = self.view.bounds
-    }
 
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,41 +82,25 @@ public final class RootViewController: UITableViewController {
 private protocol RootViewControllerEvents
 {
     func onSearchButtonDidTapped(button: UIBarButtonItem?) -> Void
-    func onSearchExecuteButtonDidTapped(button: UIButton?) -> Void
 }
 
 extension RootViewController: RootViewControllerEvents
 {
     @objc private func onSearchButtonDidTapped(button: UIBarButtonItem?) {
-        self.showSearch = !self.showSearch
-        if false == self.showSearch
-        {
-            if self.searchView.searchTextField.isFirstResponder()
-            {
-                self.searchView.searchTextField.resignFirstResponder()
-            }
-            self.searchView.hide({ 
-                if self.view.subviews.contains(self.searchView)
-                {
-                    self.searchView.removeFromSuperview()
-                }
-            })
-        } else
-        {
-            if !self.view.subviews.contains(self.searchView)
-            {
-                self.view.addSubview(self.searchView)
-            }
-            self.searchView.searchTextField.text = nil
-            self.searchView.show({ [weak self] in
-                self?.searchView.searchTextField.becomeFirstResponder()
-            })
-        }
+        let searchViewController: SearchViewController = SearchViewController(style: UITableViewStyle.Plain)
+        let navigationController: UINavigationController = UINavigationController(rootViewController: searchViewController)
+        searchViewController.delegate = self
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        self.presentViewController(navigationController
+            , animated: true, completion: nil)
     }
-    
-    @objc private func onSearchExecuteButtonDidTapped(button: UIButton?)
-    {
-        guard let searchText: String = self.searchView.searchTextField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) else
+}
+
+extension RootViewController: SearchViewControllerDelegate
+{
+    public func searchViewController(viewController: SearchViewController, searchExecute search: String?) {
+        guard let searchText: String = search?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) else
         {
             return
         }
@@ -145,9 +111,8 @@ extension RootViewController: RootViewControllerEvents
         }
         
         self.connpass.keyword(searchText)
-        .start(0)
+            .start(0)
         self.refresh(nil)
-        self.onSearchButtonDidTapped(nil)
         
         if let latest: History = History.latest
         {
@@ -168,15 +133,6 @@ extension RootViewController: RootViewControllerEvents
         {
             fatalError("History write failed")
         }
-    }
-}
-
-extension RootViewController: UITextFieldDelegate
-{
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        self.onSearchExecuteButtonDidTapped(nil)
-        return true
     }
 }
 

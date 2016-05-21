@@ -13,6 +13,10 @@
 		AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */; };
 		AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */; };
 		AD0163A21CE81A1700D5A126 /* Instanstable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0163A11CE81A1700D5A126 /* Instanstable.swift */; };
+		AD1E4DF71CF001B700C4F66C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4DF61CF001B700C4F66C /* SearchViewController.swift */; };
+		AD1E4DFC1CF0684D00C4F66C /* FKSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4DFB1CF0684D00C4F66C /* FKSearchBar.swift */; };
+		AD1E4E021CF0690800C4F66C /* Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4E011CF0690800C4F66C /* Once.swift */; };
+		AD1E4E041CF07A8700C4F66C /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4E031CF07A8700C4F66C /* SearchViewCell.swift */; };
 		AD2E0FD41CEA8AAE00C20C30 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */; };
 		AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
 		AD5E123C1CE8607D00FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
@@ -28,8 +32,6 @@
 		AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583911CE770C80026FD0A /* ConnpassManager.swift */; };
 		AD7583941CE771010026FD0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7583931CE771010026FD0A /* StringExtension.swift */; };
 		AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7583971CE772030026FD0A /* Alamofire.framework */; };
-		AD92F2651CE88E830020652C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD92F2641CE88E830020652C /* SearchView.swift */; };
-		AD92F2691CE89AA80020652C /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD92F26B1CE89AA80020652C /* SearchView.xib */; };
 		AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD92F2731CE89AFC0020652C /* Localizable.strings */; };
 		ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAB86B41CEA85BF0032091B /* FooterView.xib */; };
 		ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB86B81CEA861F0032091B /* FooterView.swift */; };
@@ -57,9 +59,13 @@
 		AD0163951CE800E500D5A126 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		AD0163971CE800FA00D5A126 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		AD0163991CE8010800D5A126 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassEventListCell.swift; sourceTree = "<group>"; };
-		AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnpassEventListCell.xib; sourceTree = "<group>"; };
+		AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnpassEventListCell.swift; path = ConnpassViewer/ViewController/RootViewController/ConnpassEventListCell.swift; sourceTree = SOURCE_ROOT; };
+		AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConnpassEventListCell.xib; path = ConnpassViewer/ViewController/RootViewController/ConnpassEventListCell.xib; sourceTree = SOURCE_ROOT; };
 		AD0163A11CE81A1700D5A126 /* Instanstable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instanstable.swift; sourceTree = "<group>"; };
+		AD1E4DF61CF001B700C4F66C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AD1E4DFB1CF0684D00C4F66C /* FKSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKSearchBar.swift; sourceTree = "<group>"; };
+		AD1E4E011CF0690800C4F66C /* Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Once.swift; sourceTree = "<group>"; };
+		AD1E4E031CF07A8700C4F66C /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
@@ -81,9 +87,6 @@
 		AD7583931CE771010026FD0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		AD7583951CE771F70026FD0A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AD7583971CE772030026FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		AD92F2641CE88E830020652C /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		AD92F26A1CE89AA80020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchView.xib; sourceTree = "<group>"; };
-		AD92F26D1CE89AAF0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SearchView.strings; sourceTree = "<group>"; };
 		AD92F2721CE89AFC0020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD92F2741CE89AFE0020652C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ADAB86B41CEA85BF0032091B /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		AD01639B1CE80C1800D5A126 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AD1E4DF51CF0019B00C4F66C /* SearchViewController */,
 				AD5E123D1CE8609000FF9AAE /* BrowserViewController */,
 				AD01639C1CE811A600D5A126 /* RootViewController */,
 			);
@@ -133,14 +137,37 @@
 			isa = PBXGroup;
 			children = (
 				AD7583641CE76F900026FD0A /* RootViewController.swift */,
-				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
-				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
-				AD92F2641CE88E830020652C /* SearchView.swift */,
-				AD92F26B1CE89AA80020652C /* SearchView.xib */,
 				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
 				ADAB86B81CEA861F0032091B /* FooterView.swift */,
 			);
 			path = RootViewController;
+			sourceTree = "<group>";
+		};
+		AD1E4DF51CF0019B00C4F66C /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD1E4DF61CF001B700C4F66C /* SearchViewController.swift */,
+				AD1E4E031CF07A8700C4F66C /* SearchViewCell.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		AD1E4DFA1CF0682D00C4F66C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD1E4DFB1CF0684D00C4F66C /* FKSearchBar.swift */,
+				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
+				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD1E4E001CF068F300C4F66C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AD1E4E011CF0690800C4F66C /* Once.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		AD5E123D1CE8609000FF9AAE /* BrowserViewController */ = {
@@ -176,6 +203,8 @@
 		AD7583611CE76F900026FD0A /* ConnpassViewer */ = {
 			isa = PBXGroup;
 			children = (
+				AD1E4E001CF068F300C4F66C /* Support */,
+				AD1E4DFA1CF0682D00C4F66C /* View */,
 				AD92F26E1CE89ADE0020652C /* Resources */,
 				AD01639B1CE80C1800D5A126 /* ViewController */,
 				ADAB86BA1CEA89740032091B /* Model */,
@@ -357,7 +386,6 @@
 				ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */,
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
 				AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */,
-				AD92F2691CE89AA80020652C /* SearchView.xib in Resources */,
 				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
@@ -405,14 +433,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD1E4E041CF07A8700C4F66C /* SearchViewCell.swift in Sources */,
+				AD1E4DFC1CF0684D00C4F66C /* FKSearchBar.swift in Sources */,
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
-				AD92F2651CE88E830020652C /* SearchView.swift in Sources */,
 				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
 				ADAB86BC1CEA898B0032091B /* History.swift in Sources */,
 				ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
 				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
 				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,
+				AD1E4E021CF0690800C4F66C /* Once.swift in Sources */,
+				AD1E4DF71CF001B700C4F66C /* SearchViewController.swift in Sources */,
 				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
 				AD2E0FD41CEA8AAE00C20C30 /* RealmExtension.swift in Sources */,
 				AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */,
@@ -468,15 +499,6 @@
 				AD75836C1CE76F900026FD0A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		AD92F26B1CE89AA80020652C /* SearchView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD92F26A1CE89AA80020652C /* Base */,
-				AD92F26D1CE89AAF0020652C /* ja */,
-			);
-			name = SearchView.xib;
 			sourceTree = "<group>";
 		};
 		AD92F2731CE89AFC0020652C /* Localizable.strings */ = {

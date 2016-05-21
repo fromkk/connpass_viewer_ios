@@ -19,18 +19,41 @@ public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
     @IBOutlet public weak var bgView: UIView!
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var dateLabel: UILabel!
+    @IBOutlet public weak var borderView: UIView!
+    @IBOutlet public weak var locationButton: UIButton!
+    @IBOutlet public weak var addressLabel: UILabel!
+    @IBOutlet public weak var addressLabelMarginBottomConstraint: NSLayoutConstraint!
     public var event: ConnpassEvent? {
         didSet {
             guard let event = event else
             {
                 self.titleLabel.text = nil
                 self.dateLabel.text = nil
+                self.addressLabel.text = nil
+                self.locationButton.hidden = true
+                self.addressLabelMarginBottomConstraint.constant = 0
                 return
             }
             
             self.titleLabel.text = event.title
             self.dateLabel.text = event.startedDate()?.stringWithFormat("yyyy/MM/dd HH:mm")
+            if let address: String = event.address where 0 < address.characters.count {
+                self.locationButton.hidden = false
+                self.addressLabel.text = address
+                self.borderView.hidden = false
+                self.addressLabelMarginBottomConstraint.constant = 6
+            } else
+            {
+                self.locationButton.hidden = true
+                self.addressLabel.text = nil
+                self.borderView.hidden = true
+                self.addressLabelMarginBottomConstraint.constant = 0
+            }
         }
+    }
+    
+    @IBAction public func onLocationButtonDidTapped(button: UIButton) {
+        print(self.event?.address, self.event?.lat, self.event?.lon)
     }
 }
 

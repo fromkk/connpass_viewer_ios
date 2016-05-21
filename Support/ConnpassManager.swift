@@ -61,7 +61,7 @@ public class ConnpassSearch
 {
     private let domain :String = "http://connpass.com"
     private let path: String = "/api/v1/event/"
-    private var queries: [String:Querable] = ["count":50, "order": ConnpassOrder.Start.rawValue]
+    private var queries: [String:Querable] = ["count":50, "order": ConnpassOrder.Create.rawValue]
     public var queryString: String {
         let queries: [String] = self.queries.keys.map {
             "\($0.queryValue)=\(self.queries[$0]?.queryValue ?? "")"

@@ -10,25 +10,6 @@ import Foundation
 import ObjectMapper
 import Alamofire
 
-public protocol Querable
-{
-    var queryValue: String { get }
-}
-
-extension Int: Querable
-{
-    public var queryValue: String {
-        return String(self).queryValue
-    }
-}
-
-extension String: Querable
-{
-    public var queryValue: String {
-        return self.urlEscape()
-    }
-}
-
 public enum ConnpassOrder: Int
 {
     case Update = 1

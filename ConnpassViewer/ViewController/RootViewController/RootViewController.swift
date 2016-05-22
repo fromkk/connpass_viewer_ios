@@ -136,6 +136,19 @@ extension RootViewController: SearchViewControllerDelegate
     }
 }
 
+extension RootViewController: ConnpassEventListCellDelegate
+{
+    public func eventListCellLocationButtonDidTapped(event: ConnpassEvent?) {
+        guard let mapViewController: MapViewController = MapViewController.instantiableViewController else
+        {
+            return
+        }
+        
+        mapViewController.event = event
+        self.navigationController?.pushViewController(mapViewController, animated: true)
+    }
+}
+
 extension RootViewController
 {
     func refresh(refreshControl: UIRefreshControl?) -> Void
@@ -201,6 +214,7 @@ extension RootViewController
         {
             cell.event = event
         }
+        cell.delegate = self
         
         return cell
     }

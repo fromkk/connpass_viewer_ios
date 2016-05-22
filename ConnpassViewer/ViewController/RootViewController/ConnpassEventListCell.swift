@@ -8,6 +8,11 @@
 
 import UIKit
 
+public protocol ConnpassEventListCellDelegate : class
+{
+    func eventListCellLocationButtonDidTapped(event: ConnpassEvent?) -> Void
+}
+
 public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
 {
     public static let cellIdentifier: String = "ConnpassEventListCell"
@@ -20,9 +25,12 @@ public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var dateLabel: UILabel!
     @IBOutlet public weak var borderView: UIView!
-    @IBOutlet public weak var locationButton: UIButton!
+    @IBOutlet public weak var locationButton: LocationButton!
     @IBOutlet public weak var addressLabel: UILabel!
     @IBOutlet public weak var addressLabelMarginBottomConstraint: NSLayoutConstraint!
+    @IBOutlet public weak var locationButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet public weak var locationButtonMarginBottomConstraint: NSLayoutConstraint!
+    public weak var delegate: ConnpassEventListCellDelegate?
     public var event: ConnpassEvent? {
         didSet {
             guard let event = event else
@@ -32,6 +40,8 @@ public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
                 self.addressLabel.text = nil
                 self.locationButton.hidden = true
                 self.addressLabelMarginBottomConstraint.constant = 0
+                self.locationButtonHeightConstraint.constant = 0
+                self.locationButtonMarginBottomConstraint.constant = 0
                 return
             }
             
@@ -42,18 +52,23 @@ public final class ConnpassEventListCell: UITableViewCell, InstantiableXIB
                 self.addressLabel.text = address
                 self.borderView.hidden = false
                 self.addressLabelMarginBottomConstraint.constant = 6
+                self.locationButtonHeightConstraint.constant = 24
+                self.locationButtonMarginBottomConstraint.constant = 6
             } else
             {
                 self.locationButton.hidden = true
                 self.addressLabel.text = nil
                 self.borderView.hidden = true
                 self.addressLabelMarginBottomConstraint.constant = 0
+                self.locationButtonHeightConstraint.constant = 0
+                self.locationButtonMarginBottomConstraint.constant = 0
             }
         }
     }
     
-    @IBAction public func onLocationButtonDidTapped(button: UIButton) {
-        print(self.event?.address, self.event?.lat, self.event?.lon)
+    @IBAction public func onLocationButtonDidTapped(button: UIButton) -> Void
+    {
+        self.delegate?.eventListCellLocationButtonDidTapped(self.event)
     }
 }
 
@@ -62,6 +77,7 @@ extension ConnpassEventListCell
     public override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.contentView.userInteractionEnabled = false
         self.backgroundView?.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
         self.bgView.layer.cornerRadius = 3.0

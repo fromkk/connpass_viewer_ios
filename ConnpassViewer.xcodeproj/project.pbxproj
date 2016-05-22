@@ -18,6 +18,14 @@
 		AD1E4E021CF0690800C4F66C /* Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4E011CF0690800C4F66C /* Once.swift */; };
 		AD1E4E041CF07A8700C4F66C /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E4E031CF07A8700C4F66C /* SearchViewCell.swift */; };
 		AD2E0FD41CEA8AAE00C20C30 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */; };
+		AD523A4C1CF1700E004BA797 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD523A4B1CF1700E004BA797 /* MapViewController.swift */; };
+		AD523A4E1CF1702E004BA797 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD523A4D1CF1702E004BA797 /* MapKit.framework */; };
+		AD523A501CF17152004BA797 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD523A4F1CF17152004BA797 /* MapViewController.storyboard */; };
+		AD523A531CF17DA7004BA797 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD523A511CF17DA7004BA797 /* Fabric.framework */; };
+		AD523A541CF17DA7004BA797 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD523A521CF17DA7004BA797 /* Crashlytics.framework */; };
+		AD523A561CF1827C004BA797 /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD523A551CF1827C004BA797 /* GoogleMaps.swift */; };
+		AD523A581CF183D3004BA797 /* Querable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD523A571CF183D3004BA797 /* Querable.swift */; };
+		AD52BF2D1CF1699E00F86A20 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52BF2C1CF1699E00F86A20 /* LocationButton.swift */; };
 		AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
 		AD5E123C1CE8607D00FF9AAE /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */; };
 		AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */; };
@@ -61,13 +69,21 @@
 		AD0163991CE8010800D5A126 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnpassEventListCell.swift; path = ConnpassViewer/ViewController/RootViewController/ConnpassEventListCell.swift; sourceTree = SOURCE_ROOT; };
 		AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConnpassEventListCell.xib; path = ConnpassViewer/ViewController/RootViewController/ConnpassEventListCell.xib; sourceTree = SOURCE_ROOT; };
-		AD0163A11CE81A1700D5A126 /* Instanstable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instanstable.swift; sourceTree = "<group>"; };
+		AD0163A11CE81A1700D5A126 /* Instanstable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Instanstable.swift; path = ../../Support/Instanstable.swift; sourceTree = "<group>"; };
 		AD1E4DF61CF001B700C4F66C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD1E4DFB1CF0684D00C4F66C /* FKSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKSearchBar.swift; sourceTree = "<group>"; };
 		AD1E4E011CF0690800C4F66C /* Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Once.swift; sourceTree = "<group>"; };
 		AD1E4E031CF07A8700C4F66C /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
-		AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
-		AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmExtension.swift; path = ../../Support/RealmExtension.swift; sourceTree = "<group>"; };
+		AD523A4B1CF1700E004BA797 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AD523A4D1CF1702E004BA797 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AD523A4F1CF17152004BA797 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		AD523A511CF17DA7004BA797 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		AD523A521CF17DA7004BA797 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		AD523A551CF1827C004BA797 /* GoogleMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMaps.swift; sourceTree = "<group>"; };
+		AD523A571CF183D3004BA797 /* Querable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Querable.swift; sourceTree = "<group>"; };
+		AD52BF2C1CF1699E00F86A20 /* LocationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtension.swift; path = ../../Support/NSDateExtension.swift; sourceTree = "<group>"; };
 		AD5E123E1CE860D200FF9AAE /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		AD5E12421CE8690F00FF9AAE /* NSDateExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionTest.swift; sourceTree = "<group>"; };
 		AD75835F1CE76F900026FD0A /* ConnpassViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnpassViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,8 +99,8 @@
 		AD75837E1CE76F910026FD0A /* ConnpassViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnpassViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7583821CE76F910026FD0A /* ConnpassViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassViewerUITests.swift; sourceTree = "<group>"; };
 		AD7583841CE76F910026FD0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD7583911CE770C80026FD0A /* ConnpassManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnpassManager.swift; sourceTree = "<group>"; };
-		AD7583931CE771010026FD0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		AD7583911CE770C80026FD0A /* ConnpassManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnpassManager.swift; path = ../../Support/ConnpassManager.swift; sourceTree = "<group>"; };
+		AD7583931CE771010026FD0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = ../../Support/StringExtension.swift; sourceTree = "<group>"; };
 		AD7583951CE771F70026FD0A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AD7583971CE772030026FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		AD92F2721CE89AFC0020652C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -99,10 +115,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD523A4E1CF1702E004BA797 /* MapKit.framework in Frameworks */,
 				AD01639A1CE8010800D5A126 /* RealmSwift.framework in Frameworks */,
 				AD0163981CE800FA00D5A126 /* Realm.framework in Frameworks */,
 				AD0163961CE800E500D5A126 /* ObjectMapper.framework in Frameworks */,
 				AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */,
+				AD523A531CF17DA7004BA797 /* Fabric.framework in Frameworks */,
+				AD523A541CF17DA7004BA797 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +145,10 @@
 		AD01639B1CE80C1800D5A126 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AD1E4DF51CF0019B00C4F66C /* SearchViewController */,
-				AD5E123D1CE8609000FF9AAE /* BrowserViewController */,
 				AD01639C1CE811A600D5A126 /* RootViewController */,
+				AD1E4DF51CF0019B00C4F66C /* SearchViewController */,
+				AD523A4A1CF16FE6004BA797 /* MapViewController */,
+				AD5E123D1CE8609000FF9AAE /* BrowserViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -158,6 +178,7 @@
 				AD1E4DFB1CF0684D00C4F66C /* FKSearchBar.swift */,
 				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
 				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
+				AD52BF2C1CF1699E00F86A20 /* LocationButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,9 +186,25 @@
 		AD1E4E001CF068F300C4F66C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				AD7583911CE770C80026FD0A /* ConnpassManager.swift */,
+				AD7583931CE771010026FD0A /* StringExtension.swift */,
+				AD0163A11CE81A1700D5A126 /* Instanstable.swift */,
+				AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */,
+				AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */,
 				AD1E4E011CF0690800C4F66C /* Once.swift */,
+				AD523A551CF1827C004BA797 /* GoogleMaps.swift */,
+				AD523A571CF183D3004BA797 /* Querable.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		AD523A4A1CF16FE6004BA797 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD523A4B1CF1700E004BA797 /* MapViewController.swift */,
+				AD523A4F1CF17152004BA797 /* MapViewController.storyboard */,
+			);
+			path = MapViewController;
 			sourceTree = "<group>";
 		};
 		AD5E123D1CE8609000FF9AAE /* BrowserViewController */ = {
@@ -182,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				AD75839B1CE772FF0026FD0A /* Frameworks */,
-				AD7583901CE770A50026FD0A /* Support */,
 				AD7583611CE76F900026FD0A /* ConnpassViewer */,
 				AD7583761CE76F910026FD0A /* ConnpassViewerTests */,
 				AD7583811CE76F910026FD0A /* ConnpassViewerUITests */,
@@ -205,9 +241,9 @@
 			children = (
 				AD1E4E001CF068F300C4F66C /* Support */,
 				AD1E4DFA1CF0682D00C4F66C /* View */,
-				AD92F26E1CE89ADE0020652C /* Resources */,
 				AD01639B1CE80C1800D5A126 /* ViewController */,
 				ADAB86BA1CEA89740032091B /* Model */,
+				AD92F26E1CE89ADE0020652C /* Resources */,
 				AD7583621CE76F900026FD0A /* AppDelegate.swift */,
 				AD7583661CE76F900026FD0A /* Main.storyboard */,
 				AD7583691CE76F900026FD0A /* Assets.xcassets */,
@@ -236,21 +272,12 @@
 			path = ConnpassViewerUITests;
 			sourceTree = "<group>";
 		};
-		AD7583901CE770A50026FD0A /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				AD7583911CE770C80026FD0A /* ConnpassManager.swift */,
-				AD7583931CE771010026FD0A /* StringExtension.swift */,
-				AD0163A11CE81A1700D5A126 /* Instanstable.swift */,
-				AD5E12391CE82E8400FF9AAE /* NSDateExtension.swift */,
-				AD2E0FD31CEA8AAE00C20C30 /* RealmExtension.swift */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
 		AD75839B1CE772FF0026FD0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD523A511CF17DA7004BA797 /* Fabric.framework */,
+				AD523A521CF17DA7004BA797 /* Crashlytics.framework */,
+				AD523A4D1CF1702E004BA797 /* MapKit.framework */,
 				AD0163991CE8010800D5A126 /* RealmSwift.framework */,
 				AD0163971CE800FA00D5A126 /* Realm.framework */,
 				AD0163951CE800E500D5A126 /* ObjectMapper.framework */,
@@ -286,7 +313,8 @@
 				AD75835B1CE76F900026FD0A /* Sources */,
 				AD75835C1CE76F900026FD0A /* Frameworks */,
 				AD75835D1CE76F900026FD0A /* Resources */,
-				AD75839A1CE772590026FD0A /* ShellScript */,
+				AD75839A1CE772590026FD0A /* Carthage */,
+				AD523A491CF16F1E004BA797 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -389,6 +417,7 @@
 				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
+				AD523A501CF17152004BA797 /* MapViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +438,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AD75839A1CE772590026FD0A /* ShellScript */ = {
+		AD523A491CF16F1E004BA797 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ff07727215353b2839aadad25e7d5dbda88543d8 dc617b80444bcb00e1ddc93a56e637579e5dc463958b7c7563347921ff610f3d";
+		};
+		AD75839A1CE772590026FD0A /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,6 +463,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +481,7 @@
 				AD1E4DFC1CF0684D00C4F66C /* FKSearchBar.swift in Sources */,
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
 				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
+				AD52BF2D1CF1699E00F86A20 /* LocationButton.swift in Sources */,
 				ADAB86BC1CEA898B0032091B /* History.swift in Sources */,
 				ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
@@ -445,9 +490,12 @@
 				AD1E4E021CF0690800C4F66C /* Once.swift in Sources */,
 				AD1E4DF71CF001B700C4F66C /* SearchViewController.swift in Sources */,
 				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
+				AD523A581CF183D3004BA797 /* Querable.swift in Sources */,
 				AD2E0FD41CEA8AAE00C20C30 /* RealmExtension.swift in Sources */,
 				AD7583631CE76F900026FD0A /* AppDelegate.swift in Sources */,
+				AD523A561CF1827C004BA797 /* GoogleMaps.swift in Sources */,
 				AD0163A21CE81A1700D5A126 /* Instanstable.swift in Sources */,
+				AD523A4C1CF1700E004BA797 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,19 +652,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kazuya Ueoka (8S287389N9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kazuya Ueoka (8S287389N9)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b6dcb7fd-d5ca-446d-bc7b-02b2f4afb45f";
 			};
 			name = Debug;
 		};
@@ -624,19 +673,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Ueoka (K84E4S7G4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kazuya Ueoka (K84E4S7G4C)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "abcc3aec-d104-4eca-8481-f83dbcdb07e5";
 			};
 			name = Release;
 		};

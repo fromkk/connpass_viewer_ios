@@ -14,38 +14,38 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVc-7l-k4e">
                     <rect key="frame" x="6" y="6" width="588" height="592"/>
                     <subviews>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAY-Io-nhJ" customClass="LocationButton" customModule="ConnpassViewer" customModuleProvider="target">
+                            <rect key="frame" x="6" y="56" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="dqN-8G-R9o"/>
+                                <constraint firstAttribute="width" constant="24" id="fcz-qc-hu6"/>
+                            </constraints>
+                            <state key="normal" image="ic_location"/>
+                            <connections>
+                                <action selector="onLocationButtonDidTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="9sz-hB-A5j"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPN-F0-51R">
-                            <rect key="frame" x="6" y="6" width="576" height="19.5"/>
+                            <rect key="frame" x="6" y="6" width="576" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.24517227559999999" green="0.24517227559999999" blue="0.24517227559999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBd-h2-8iX">
-                            <rect key="frame" x="6" y="27" width="576" height="14.5"/>
+                            <rect key="frame" x="6" y="28" width="576" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-di-Sw9">
-                            <rect key="frame" x="0.0" y="48" width="588" height="1"/>
+                            <rect key="frame" x="0.0" y="49" width="588" height="1"/>
                             <color key="backgroundColor" white="0.89675964770000005" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="UE8-e3-PtQ"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAY-Io-nhJ">
-                            <rect key="frame" x="6" y="55" width="20" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="dqN-8G-R9o"/>
-                                <constraint firstAttribute="width" constant="20" id="fcz-qc-hu6"/>
-                            </constraints>
-                            <state key="normal" image="ic_location"/>
-                            <connections>
-                                <action selector="onLocationButtonDidTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dY5-U5-TJC"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15h-4B-yIp">
-                            <rect key="frame" x="34" y="55" width="548" height="17"/>
+                            <rect key="frame" x="38" y="56" width="544" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -65,6 +65,7 @@
                         <constraint firstItem="hBd-h2-8iX" firstAttribute="leading" secondItem="oPN-F0-51R" secondAttribute="leading" id="bco-ov-u0H"/>
                         <constraint firstItem="hBd-h2-8iX" firstAttribute="trailing" secondItem="oPN-F0-51R" secondAttribute="trailing" id="d1W-gz-IQR"/>
                         <constraint firstItem="TAY-Io-nhJ" firstAttribute="leading" secondItem="hBd-h2-8iX" secondAttribute="leading" id="fcV-uI-DQe"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TAY-Io-nhJ" secondAttribute="bottom" constant="6" id="fmC-8U-kPy"/>
                         <constraint firstAttribute="trailing" secondItem="oPN-F0-51R" secondAttribute="trailing" constant="6" id="mts-w0-4iV"/>
                         <constraint firstItem="Wgu-di-Sw9" firstAttribute="width" secondItem="uVc-7l-k4e" secondAttribute="width" id="szh-0P-DFq"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="15h-4B-yIp" secondAttribute="bottom" constant="8" id="t5m-ow-GBM"/>
@@ -91,6 +92,8 @@
                 <outlet property="borderView" destination="Wgu-di-Sw9" id="pTx-G8-yHs"/>
                 <outlet property="dateLabel" destination="hBd-h2-8iX" id="XBB-Wk-h4b"/>
                 <outlet property="locationButton" destination="TAY-Io-nhJ" id="7WG-dh-5UX"/>
+                <outlet property="locationButtonHeightConstraint" destination="dqN-8G-R9o" id="HG6-aA-y0q"/>
+                <outlet property="locationButtonMarginBottomConstraint" destination="fmC-8U-kPy" id="b6x-da-CBO"/>
                 <outlet property="titleLabel" destination="oPN-F0-51R" id="WFW-0S-N8a"/>
             </connections>
         </view>

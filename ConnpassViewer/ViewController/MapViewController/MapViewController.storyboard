@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="jfL-hw-dnZ">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eNr-P3-fXR" customClass="MapViewController" customModule="ConnpassViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JCc-Tz-vla"/>
+                        <viewControllerLayoutGuide type="bottom" id="aBg-qF-FiF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uEf-Fa-b4d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1mt-py-BRK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1mt-py-BRK" firstAttribute="height" secondItem="uEf-Fa-b4d" secondAttribute="height" id="Fkd-ZE-dJ9"/>
+                            <constraint firstItem="1mt-py-BRK" firstAttribute="centerX" secondItem="uEf-Fa-b4d" secondAttribute="centerX" id="Gzw-aA-q2c"/>
+                            <constraint firstItem="1mt-py-BRK" firstAttribute="width" secondItem="uEf-Fa-b4d" secondAttribute="width" id="YRh-jN-cpO"/>
+                            <constraint firstItem="1mt-py-BRK" firstAttribute="centerY" secondItem="uEf-Fa-b4d" secondAttribute="centerY" id="sJY-gb-2q8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="1mt-py-BRK" id="0nn-qi-b35"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0q-AR-weB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="727" y="553"/>
+        </scene>
+    </scenes>
+</document>

@@ -17,6 +17,7 @@ public final class RootViewController: UITableViewController {
     var request: Request?
     var event: ConnpassResponse?
     var showSearch: Bool = false
+    var keyword: String = ""
     lazy var logoImageView: UIImageView = {
         let result: UIImageView = UIImageView(image: UIImage(named: "connpass_logo"))
         result.contentMode = UIViewContentMode.ScaleAspectFit
@@ -38,6 +39,11 @@ public final class RootViewController: UITableViewController {
     }()
     private lazy var searchButton: UIBarButtonItem = {
         let result: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_search"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.onSearchButtonDidTapped(_:)))
+        return result
+    }()
+    private lazy var headerView: HeaderView? = {
+        let result: HeaderView? = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderView.headerIdentifier) as? HeaderView
+        result?.closeButton.addTarget(self, action: #selector(self.onCloseButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return result
     }()
     private lazy var footerView: FooterView = {
@@ -64,6 +70,10 @@ public final class RootViewController: UITableViewController {
         {
             self.tableView.registerNib(nib, forCellReuseIdentifier: ConnpassEventListCell.cellIdentifier)
         }
+        if let nib: UINib = HeaderView.instantiableXib
+        {
+            self.tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: HeaderView.headerIdentifier)
+        }
     }
     
     public override func viewDidLoad() {
@@ -82,6 +92,7 @@ public final class RootViewController: UITableViewController {
 private protocol RootViewControllerEvents
 {
     func onSearchButtonDidTapped(button: UIBarButtonItem?) -> Void
+    func onCloseButtonDidTapped(button: UIButton) -> Void
 }
 
 extension RootViewController: RootViewControllerEvents
@@ -94,6 +105,12 @@ extension RootViewController: RootViewControllerEvents
         navigationController.modalPresentationStyle = UIModalPresentationStyle.Custom
         self.presentViewController(navigationController
             , animated: true, completion: nil)
+    }
+    
+    @objc private func onCloseButtonDidTapped(button: UIButton) {
+        self.keyword = ""
+        self.connpass.keyword("")
+        self.refresh(nil)
     }
 }
 
@@ -110,6 +127,9 @@ extension RootViewController: SearchViewControllerDelegate
             return
         }
         
+        self.event = nil
+        self.tableView.reloadData()
+        self.keyword = searchText
         self.connpass.keyword(searchText)
             .start(0)
         self.refresh(nil)
@@ -153,6 +173,9 @@ extension RootViewController
 {
     func refresh(refreshControl: UIRefreshControl?) -> Void
     {
+        self.event = nil
+        self.tableView.reloadData()
+        self.connpass.start(0)
         self.activityIndicator.startAnimating()
         self.request = ConnpassResponse.fetch(self.connpass, completion: { [weak self] (response) in
             refreshControl?.endRefreshing()
@@ -222,6 +245,33 @@ extension RootViewController
 
 extension RootViewController
 {
+    public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let keyboard: String = self.keyword where 0 < keyword.characters.count
+        {
+            if let headerView: HeaderView = self.headerView
+            {
+                headerView.closeButton.setTitle(keyboard, forState: UIControlState.Normal)
+                return headerView
+            } else
+            {
+                return nil
+            }
+        } else
+        {
+            return nil
+        }
+    }
+    
+    public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if let _: String = self.keyword where 0 < keyword.characters.count
+        {
+            return 48.0
+        } else
+        {
+            return 0.0
+        }
+    }
+    
     public override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 64.0
     }
@@ -243,7 +293,7 @@ extension RootViewController
             
             if #available(iOS 9, *)
             {
-                let safariViewController: SFSafariViewController = SFSafariViewController(URL: url)
+                let safariViewController: SFSafariViewController = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
                 self.navigationController?.pushViewController(safariViewController, animated: true)
             } else
             {
@@ -286,3 +336,4 @@ extension RootViewController
         })
     }
 }
+

@@ -44,6 +44,9 @@
 		ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAB86B41CEA85BF0032091B /* FooterView.xib */; };
 		ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB86B81CEA861F0032091B /* FooterView.swift */; };
 		ADAB86BC1CEA898B0032091B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB86BB1CEA898B0032091B /* History.swift */; };
+		ADFD66451CF1CCE50058984C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADFD66441CF1CCE50058984C /* HeaderView.xib */; };
+		ADFD66471CF1CF4D0058984C /* FKBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD66461CF1CF4D0058984C /* FKBorderButton.swift */; };
+		ADFD66491CF1D1500058984C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD66481CF1D1500058984C /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,9 @@
 		ADAB86B41CEA85BF0032091B /* FooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		ADAB86B81CEA861F0032091B /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		ADAB86BB1CEA898B0032091B /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		ADFD66441CF1CCE50058984C /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		ADFD66461CF1CF4D0058984C /* FKBorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBorderButton.swift; sourceTree = "<group>"; };
+		ADFD66481CF1D1500058984C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				AD7583641CE76F900026FD0A /* RootViewController.swift */,
-				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
 				ADAB86B81CEA861F0032091B /* FooterView.swift */,
+				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
+				ADFD66481CF1D1500058984C /* HeaderView.swift */,
+				ADFD66441CF1CCE50058984C /* HeaderView.xib */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 				AD01639D1CE8141500D5A126 /* ConnpassEventListCell.swift */,
 				AD01639F1CE817B800D5A126 /* ConnpassEventListCell.xib */,
 				AD52BF2C1CF1699E00F86A20 /* LocationButton.swift */,
+				ADFD66461CF1CF4D0058984C /* FKBorderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +423,7 @@
 				ADAB86B51CEA85BF0032091B /* FooterView.xib in Resources */,
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
 				AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */,
+				ADFD66451CF1CCE50058984C /* HeaderView.xib in Resources */,
 				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
@@ -487,8 +497,10 @@
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
 				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
 				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,
+				ADFD66471CF1CF4D0058984C /* FKBorderButton.swift in Sources */,
 				AD1E4E021CF0690800C4F66C /* Once.swift in Sources */,
 				AD1E4DF71CF001B700C4F66C /* SearchViewController.swift in Sources */,
+				ADFD66491CF1D1500058984C /* HeaderView.swift in Sources */,
 				AD7583651CE76F900026FD0A /* RootViewController.swift in Sources */,
 				AD523A581CF183D3004BA797 /* Querable.swift in Sources */,
 				AD2E0FD41CEA8AAE00C20C30 /* RealmExtension.swift in Sources */,

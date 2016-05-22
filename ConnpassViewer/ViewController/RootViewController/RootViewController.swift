@@ -11,7 +11,71 @@ import Alamofire
 import SafariServices
 import RealmSwift
 
-public final class RootViewController: UITableViewController {
+public final class RootViewController: UIViewController
+{
+    private lazy var nendView: NADView = {
+        let result: NADView = NADView(isAdjustAdSize: true)
+        result.nendApiKey = NendConfig.ApiKey.rawValue
+        result.nendSpotID = NendConfig.SpotID.rawValue
+        result.isOutputLog = true
+        result.delegate = self
+        result.load()
+        return result
+    }()
+    private lazy var mainViewController: MainViewController = {
+        guard let result: MainViewController = MainViewController.instantiableViewController else
+        {
+            fatalError("mainViewController initialize failed")
+        }
+        return result
+    }()
+}
+
+extension RootViewController
+{
+    public override func loadView() {
+        super.loadView()
+        
+        self.addChildViewController(self.mainViewController)
+        self.view.addSubview(self.mainViewController.view)
+        self.mainViewController.didMoveToParentViewController(self)
+        self.view.addSubview(self.nendView)
+    }
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.nendView.resume()
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.nendView.frame = CGRect(x: 0.0, y: self.view.frame.size.height - self.nendView.frame.size.height, width: self.view.frame.size.width, height: self.nendView.frame.size.height)
+    }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.nendView.pause()
+    }
+}
+
+extension RootViewController: NADViewDelegate
+{
+    public func nadViewDidReceiveAd(adView: NADView!) {
+        print(#function)
+        self.mainViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height - self.nendView.frame.size.height)
+        self.nendView.hidden = false
+    }
+    
+    public func nadViewDidFailToReceiveAd(adView: NADView!) {
+        print(#function)
+        self.mainViewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.nendView.hidden = true
+    }
+}
+
+public final class MainViewController: UITableViewController {
 
     let connpass: ConnpassSearch = ConnpassSearch()
     var request: Request?
@@ -57,6 +121,7 @@ public final class RootViewController: UITableViewController {
         }
     }()
     
+    
     public override func loadView() {
         super.loadView()
         
@@ -82,20 +147,32 @@ public final class RootViewController: UITableViewController {
         self.refresh(nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    public override var navigationItem: UINavigationItem {
+        guard let navigationItem: UINavigationItem = self.parentViewController?.navigationItem else
+        {
+            fatalError("navigationItem get failed")
+        }
+        return navigationItem
+    }
+    
+    public override var navigationController: UINavigationController? {
+        return self.parentViewController?.navigationController
+    }
 }
 
-private protocol RootViewControllerEvents
+private protocol MainViewControllerEvents
 {
     func onSearchButtonDidTapped(button: UIBarButtonItem?) -> Void
     func onCloseButtonDidTapped(button: UIButton) -> Void
 }
 
-extension RootViewController: RootViewControllerEvents
+extension MainViewController: MainViewControllerEvents
 {
     @objc private func onSearchButtonDidTapped(button: UIBarButtonItem?) {
         let searchViewController: SearchViewController = SearchViewController(style: UITableViewStyle.Plain)
@@ -114,7 +191,7 @@ extension RootViewController: RootViewControllerEvents
     }
 }
 
-extension RootViewController: SearchViewControllerDelegate
+extension MainViewController: SearchViewControllerDelegate
 {
     public func searchViewController(viewController: SearchViewController, searchExecute search: String?) {
         guard let searchText: String = search?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) else
@@ -156,7 +233,7 @@ extension RootViewController: SearchViewControllerDelegate
     }
 }
 
-extension RootViewController: ConnpassEventListCellDelegate
+extension MainViewController: ConnpassEventListCellDelegate
 {
     public func eventListCellLocationButtonDidTapped(event: ConnpassEvent?) {
         guard let mapViewController: MapViewController = MapViewController.instantiableViewController else
@@ -169,7 +246,7 @@ extension RootViewController: ConnpassEventListCellDelegate
     }
 }
 
-extension RootViewController
+extension MainViewController
 {
     func refresh(refreshControl: UIRefreshControl?) -> Void
     {
@@ -219,7 +296,7 @@ extension RootViewController
     }
 }
 
-extension RootViewController
+extension MainViewController
 {
     public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -243,7 +320,7 @@ extension RootViewController
     }
 }
 
-extension RootViewController
+extension MainViewController
 {
     public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let keyboard: String = self.keyword where 0 < keyword.characters.count
@@ -304,7 +381,7 @@ extension RootViewController
     }
 }
 
-extension RootViewController
+extension MainViewController
 {
     public override func scrollViewDidScroll(scrollView: UIScrollView) {
         guard nil == self.request else
@@ -337,3 +414,14 @@ extension RootViewController
     }
 }
 
+extension MainViewController: InstantiableStoryboard
+{
+    @nonobjc public static var storyboardFilename: String? {
+        return "Main"
+    }
+    
+    @nonobjc public static var storyboardBundle: NSBundle?
+    @nonobjc public static var storyboardIdentifier: String? {
+        return "mainViewController"
+    }
+}

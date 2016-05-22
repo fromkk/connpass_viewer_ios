@@ -47,6 +47,14 @@
 		ADFD66451CF1CCE50058984C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADFD66441CF1CCE50058984C /* HeaderView.xib */; };
 		ADFD66471CF1CF4D0058984C /* FKBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD66461CF1CF4D0058984C /* FKBorderButton.swift */; };
 		ADFD66491CF1D1500058984C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD66481CF1D1500058984C /* HeaderView.swift */; };
+		ADFD665C1CF1DB520058984C /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFD664D1CF1DB520058984C /* libNendAd.a */; };
+		ADFD665D1CF1DB520058984C /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADFD66591CF1DB520058984C /* NADView_readme.txt */; };
+		ADFD665E1CF1DB520058984C /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADFD665B1CF1DB520058984C /* README.txt */; };
+		ADFD66641CF1DBE30058984C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFD66631CF1DBE30058984C /* AdSupport.framework */; };
+		ADFD66661CF1DBE80058984C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFD66651CF1DBE80058984C /* Security.framework */; };
+		ADFD66681CF1DBEF0058984C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFD66671CF1DBEF0058984C /* ImageIO.framework */; };
+		ADFD666A1CF1DCCA0058984C /* NendConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD66691CF1DCCA0058984C /* NendConfig.swift */; };
+		ADFD666C1CF1DF6C0058984C /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD666B1CF1DF6C0058984C /* SectionFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +122,27 @@
 		ADFD66441CF1CCE50058984C /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		ADFD66461CF1CF4D0058984C /* FKBorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBorderButton.swift; sourceTree = "<group>"; };
 		ADFD66481CF1D1500058984C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		ADFD664D1CF1DB520058984C /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		ADFD664E1CF1DB520058984C /* NADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADInterstitial.h; sourceTree = "<group>"; };
+		ADFD664F1CF1DB520058984C /* NADNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNative.h; sourceTree = "<group>"; };
+		ADFD66501CF1DB520058984C /* NADNativeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeClient.h; sourceTree = "<group>"; };
+		ADFD66511CF1DB520058984C /* NADNativeError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeError.h; sourceTree = "<group>"; };
+		ADFD66521CF1DB520058984C /* NADNativeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeImageView.h; sourceTree = "<group>"; };
+		ADFD66531CF1DB520058984C /* NADNativeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLabel.h; sourceTree = "<group>"; };
+		ADFD66541CF1DB520058984C /* NADNativeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLogger.h; sourceTree = "<group>"; };
+		ADFD66551CF1DB520058984C /* NADNativeTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewHelper.h; sourceTree = "<group>"; };
+		ADFD66561CF1DB520058984C /* NADNativeTableViewPlacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewPlacement.h; sourceTree = "<group>"; };
+		ADFD66571CF1DB520058984C /* NADNativeViewRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeViewRendering.h; sourceTree = "<group>"; };
+		ADFD66581CF1DB520058984C /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		ADFD66591CF1DB520058984C /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
+		ADFD665A1CF1DB520058984C /* NendAd-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NendAd-Bridging-Header.h"; sourceTree = "<group>"; };
+		ADFD665B1CF1DB520058984C /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		ADFD665F1CF1DB6A0058984C /* ConnpassViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnpassViewer-Bridging-Header.h"; sourceTree = "<group>"; };
+		ADFD66631CF1DBE30058984C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		ADFD66651CF1DBE80058984C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		ADFD66671CF1DBEF0058984C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		ADFD66691CF1DCCA0058984C /* NendConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NendConfig.swift; sourceTree = "<group>"; };
+		ADFD666B1CF1DF6C0058984C /* SectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +150,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFD66681CF1DBEF0058984C /* ImageIO.framework in Frameworks */,
+				ADFD66661CF1DBE80058984C /* Security.framework in Frameworks */,
+				ADFD66641CF1DBE30058984C /* AdSupport.framework in Frameworks */,
 				AD523A4E1CF1702E004BA797 /* MapKit.framework in Frameworks */,
 				AD01639A1CE8010800D5A126 /* RealmSwift.framework in Frameworks */,
 				AD0163981CE800FA00D5A126 /* Realm.framework in Frameworks */,
+				ADFD665C1CF1DB520058984C /* libNendAd.a in Frameworks */,
 				AD0163961CE800E500D5A126 /* ObjectMapper.framework in Frameworks */,
 				AD7583981CE772030026FD0A /* Alamofire.framework in Frameworks */,
 				AD523A531CF17DA7004BA797 /* Fabric.framework in Frameworks */,
@@ -163,10 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				AD7583641CE76F900026FD0A /* RootViewController.swift */,
-				ADAB86B81CEA861F0032091B /* FooterView.swift */,
-				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
 				ADFD66481CF1D1500058984C /* HeaderView.swift */,
 				ADFD66441CF1CCE50058984C /* HeaderView.xib */,
+				ADAB86B81CEA861F0032091B /* FooterView.swift */,
+				ADAB86B41CEA85BF0032091B /* FooterView.xib */,
+				ADFD666B1CF1DF6C0058984C /* SectionFooterView.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -203,6 +237,7 @@
 				AD1E4E011CF0690800C4F66C /* Once.swift */,
 				AD523A551CF1827C004BA797 /* GoogleMaps.swift */,
 				AD523A571CF183D3004BA797 /* Querable.swift */,
+				ADFD66691CF1DCCA0058984C /* NendConfig.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -227,6 +262,7 @@
 		AD7583561CE76F900026FD0A = {
 			isa = PBXGroup;
 			children = (
+				ADFD664A1CF1DB3A0058984C /* thirdparty */,
 				AD75839B1CE772FF0026FD0A /* Frameworks */,
 				AD7583611CE76F900026FD0A /* ConnpassViewer */,
 				AD7583761CE76F910026FD0A /* ConnpassViewerTests */,
@@ -258,6 +294,7 @@
 				AD7583691CE76F900026FD0A /* Assets.xcassets */,
 				AD75836B1CE76F900026FD0A /* LaunchScreen.storyboard */,
 				AD75836E1CE76F900026FD0A /* Info.plist */,
+				ADFD665F1CF1DB6A0058984C /* ConnpassViewer-Bridging-Header.h */,
 			);
 			path = ConnpassViewer;
 			sourceTree = "<group>";
@@ -284,6 +321,9 @@
 		AD75839B1CE772FF0026FD0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADFD66671CF1DBEF0058984C /* ImageIO.framework */,
+				ADFD66651CF1DBE80058984C /* Security.framework */,
+				ADFD66631CF1DBE30058984C /* AdSupport.framework */,
 				AD523A511CF17DA7004BA797 /* Fabric.framework */,
 				AD523A521CF17DA7004BA797 /* Crashlytics.framework */,
 				AD523A4D1CF1702E004BA797 /* MapKit.framework */,
@@ -310,6 +350,44 @@
 				ADAB86BB1CEA898B0032091B /* History.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ADFD664A1CF1DB3A0058984C /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				ADFD664B1CF1DB520058984C /* Nend */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		ADFD664B1CF1DB520058984C /* Nend */ = {
+			isa = PBXGroup;
+			children = (
+				ADFD664C1CF1DB520058984C /* NendAd */,
+				ADFD665A1CF1DB520058984C /* NendAd-Bridging-Header.h */,
+				ADFD665B1CF1DB520058984C /* README.txt */,
+			);
+			path = Nend;
+			sourceTree = "<group>";
+		};
+		ADFD664C1CF1DB520058984C /* NendAd */ = {
+			isa = PBXGroup;
+			children = (
+				ADFD664D1CF1DB520058984C /* libNendAd.a */,
+				ADFD664E1CF1DB520058984C /* NADInterstitial.h */,
+				ADFD664F1CF1DB520058984C /* NADNative.h */,
+				ADFD66501CF1DB520058984C /* NADNativeClient.h */,
+				ADFD66511CF1DB520058984C /* NADNativeError.h */,
+				ADFD66521CF1DB520058984C /* NADNativeImageView.h */,
+				ADFD66531CF1DB520058984C /* NADNativeLabel.h */,
+				ADFD66541CF1DB520058984C /* NADNativeLogger.h */,
+				ADFD66551CF1DB520058984C /* NADNativeTableViewHelper.h */,
+				ADFD66561CF1DB520058984C /* NADNativeTableViewPlacement.h */,
+				ADFD66571CF1DB520058984C /* NADNativeViewRendering.h */,
+				ADFD66581CF1DB520058984C /* NADView.h */,
+				ADFD66591CF1DB520058984C /* NADView_readme.txt */,
+			);
+			path = NendAd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,8 +502,10 @@
 				AD75836D1CE76F900026FD0A /* LaunchScreen.storyboard in Resources */,
 				AD92F2711CE89AFC0020652C /* Localizable.strings in Resources */,
 				ADFD66451CF1CCE50058984C /* HeaderView.xib in Resources */,
+				ADFD665E1CF1DB520058984C /* README.txt in Resources */,
 				AD0163A01CE817B800D5A126 /* ConnpassEventListCell.xib in Resources */,
 				AD75836A1CE76F900026FD0A /* Assets.xcassets in Resources */,
+				ADFD665D1CF1DB520058984C /* NADView_readme.txt in Resources */,
 				AD7583681CE76F900026FD0A /* Main.storyboard in Resources */,
 				AD523A501CF17152004BA797 /* MapViewController.storyboard in Resources */,
 			);
@@ -489,12 +569,14 @@
 			files = (
 				AD1E4E041CF07A8700C4F66C /* SearchViewCell.swift in Sources */,
 				AD1E4DFC1CF0684D00C4F66C /* FKSearchBar.swift in Sources */,
+				ADFD666C1CF1DF6C0058984C /* SectionFooterView.swift in Sources */,
 				AD7583941CE771010026FD0A /* StringExtension.swift in Sources */,
 				AD5E123F1CE860D200FF9AAE /* BrowserViewController.swift in Sources */,
 				AD52BF2D1CF1699E00F86A20 /* LocationButton.swift in Sources */,
 				ADAB86BC1CEA898B0032091B /* History.swift in Sources */,
 				ADAB86B91CEA861F0032091B /* FooterView.swift in Sources */,
 				AD7583921CE770C80026FD0A /* ConnpassManager.swift in Sources */,
+				ADFD666A1CF1DCCA0058984C /* NendConfig.swift in Sources */,
 				AD5E123A1CE82E8400FF9AAE /* NSDateExtension.swift in Sources */,
 				AD01639E1CE8141500D5A126 /* ConnpassEventListCell.swift in Sources */,
 				ADFD66471CF1CF4D0058984C /* FKBorderButton.swift in Sources */,
@@ -664,6 +746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kazuya Ueoka (8S287389N9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kazuya Ueoka (8S287389N9)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
@@ -675,9 +758,16 @@
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/thirdparty/Nend/NendAd",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b6dcb7fd-d5ca-446d-bc7b-02b2f4afb45f";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConnpassViewer/ConnpassViewer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -685,6 +775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Ueoka (K84E4S7G4C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kazuya Ueoka (K84E4S7G4C)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
@@ -696,9 +787,15 @@
 				INFOPLIST_FILE = ConnpassViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/thirdparty/Nend/NendAd",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = me.fromkk.ConnpassViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "abcc3aec-d104-4eca-8481-f83dbcdb07e5";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConnpassViewer/ConnpassViewer-Bridging-Header.h";
 			};
 			name = Release;
 		};

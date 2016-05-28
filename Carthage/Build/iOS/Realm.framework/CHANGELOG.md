@@ -1,3 +1,67 @@
+1.0.0 Release notes (2016-05-25)
+=============================================================
+
+No changes since 0.103.2.
+
+0.103.2 Release notes (2016-05-24)
+=============================================================
+
+### API breaking changes
+
+* None.
+
+### Enhancements
+
+* Improve the error messages when an I/O error occurs in `writeCopyToURL`.
+
+### Bugfixes
+
+* Fix an assertion failure which could occur when opening a Realm after opening
+  that Realm failed previously in some specific ways in the same run of the
+  application.
+* Reading optional integers, floats, and doubles from within a migration block
+  now correctly returns `nil` rather than 0 when the stored value is `nil`.
+
+0.103.1 Release notes (2016-05-19)
+=============================================================
+
+### API breaking changes
+
+* None.
+
+### Enhancements
+
+* None.
+
+### Bugfixes
+
+* Fix a bug that sometimes resulted in a single object's NSData properties
+  changing from `nil` to a zero-length non-`nil` NSData when a different object
+  of the same type was deleted.
+
+0.103.0 Release notes (2016-05-18)
+=============================================================
+
+### API breaking changes
+
+* All functionality deprecated in previous releases has been removed entirely.
+* Support for Xcode 6.x & Swift prior to 2.2 has been completely removed.
+* `RLMResults`/`Results` now become empty when a `RLMArray`/`List` or object
+  they depend on is deleted, rather than throwing an exception when accessed.
+* Migrations are no longer run when `deleteRealmIfMigrationNeeded` is set,
+  recreating the file instead.
+
+### Enhancements
+
+* Added `invalidated` properties to `RLMResults`/`Results`, `RLMLinkingObjects`/`LinkingObjects`,
+  `RealmCollectionType` and `AnyRealmCollection`. These properties report whether the Realm
+  the object is associated with has been invalidated.
+* Some `NSError`s created by Realm now have more descriptive user info payloads.
+
+### Bugfixes
+
+* None.
+
 0.102.1 Release notes (2016-05-13)
 =============================================================
 

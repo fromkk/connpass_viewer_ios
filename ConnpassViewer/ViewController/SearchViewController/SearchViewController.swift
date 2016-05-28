@@ -42,6 +42,12 @@ extension SearchViewController
         self.navigationItem.leftBarButtonItem = self.closeButton
         self.tableView.tableHeaderView = self.searchBar
     }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.searchBar.becomeFirstResponder()
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate

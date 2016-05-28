@@ -8,3 +8,10 @@
 "error" = "Error";
 "completion" = "Complete";
 "close" = "Close";
+"weekday.sunday" = "Sun.";
+"weekday.monday" = "Mon.";
+"weekday.tuesday" = "Tue.";
+"weekday.wednesday" = "Wed.";
+"weekday.thursday" = "Thu.";
+"weekday.friday" = "Fri.";
+"weekday.saturday" = "Sat.";

@@ -8,3 +8,10 @@
 "error" = "エラー";
 "completion" = "完了";
 "close" = "閉じる";
+"weekday.sunday" = "日";
+"weekday.monday" = "月";
+"weekday.tuesday" = "火";
+"weekday.wednesday" = "水";
+"weekday.thursday" = "木";
+"weekday.friday" = "金";
+"weekday.saturday" = "土";

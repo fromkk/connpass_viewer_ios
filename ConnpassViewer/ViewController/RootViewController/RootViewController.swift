@@ -105,6 +105,10 @@ public final class MainViewController: UITableViewController {
         let result: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_search"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.onSearchButtonDidTapped(_:)))
         return result
     }()
+    private lazy var calendarButton: UIBarButtonItem = {
+        let result: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_calendar"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.onCalendarButtonDidTapped(_:)))
+        return result
+    }()
     private lazy var headerView: HeaderView? = {
         let result: HeaderView? = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderView.headerIdentifier) as? HeaderView
         result?.closeButton.addTarget(self, action: #selector(self.onCloseButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -121,14 +125,16 @@ public final class MainViewController: UITableViewController {
         }
     }()
     
-    
     public override func loadView() {
         super.loadView()
         
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 151.0 / 255.0, green: 151.0 / 255.0, blue: 151.0 / 255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = ConnpassColor.themeColor
         self.navigationItem.titleView = self.logoImageView
         self.navigationItem.leftBarButtonItem = self.leftNavigationItem
-        self.navigationItem.rightBarButtonItem = self.searchButton
+        self.navigationItem.rightBarButtonItems = [
+            self.searchButton,
+            self.calendarButton
+        ]
         
         self.tableView.addSubview(self.refresher)
         if let nib: UINib = ConnpassEventListCell.instantiableXib
@@ -170,6 +176,7 @@ private protocol MainViewControllerEvents
 {
     func onSearchButtonDidTapped(button: UIBarButtonItem?) -> Void
     func onCloseButtonDidTapped(button: UIButton) -> Void
+    func onCalendarButtonDidTapped(button: UIButton) -> Void
 }
 
 extension MainViewController: MainViewControllerEvents
@@ -182,6 +189,12 @@ extension MainViewController: MainViewControllerEvents
         navigationController.modalPresentationStyle = UIModalPresentationStyle.Custom
         self.presentViewController(navigationController
             , animated: true, completion: nil)
+    }
+    
+    @objc private func onCalendarButtonDidTapped(button: UIButton) {
+        let calendarViewController: CalendarViewController = CalendarViewController()
+        let navigationController: UINavigationController = UINavigationController(rootViewController: calendarViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     @objc private func onCloseButtonDidTapped(button: UIButton) {

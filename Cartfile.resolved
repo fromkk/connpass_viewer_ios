@@ -1,4 +1,4 @@
 github "Alamofire/Alamofire" "3.4.0"
-github "fromkk/FKCalendarView" "1.0.2"
+github "fromkk/FKCalendarView" "1.0.3"
 github "Hearst-DD/ObjectMapper" "1.3.0"
 github "realm/realm-cocoa" "v1.0.0"

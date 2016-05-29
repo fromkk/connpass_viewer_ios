@@ -11,7 +11,16 @@ import FKCalendarView
 
 public final class CalendarViewController: UIViewController
 {
-    public lazy var date: NSDate = NSDate()
+    public var date: NSDate = NSDate() {
+        didSet {
+            if !self.isViewLoaded()
+            {
+                return
+            }
+            
+            self.headerView.dateLabel.text = self.date.stringWithFormat("yyyy/MM")
+        }
+    }
     public lazy var calendarView: FKCalendarView = {
         let result: FKCalendarView = FKCalendarView(frame: self.view.bounds, date: self.date)
         result.weekdayHeight = 24.0
@@ -20,10 +29,22 @@ public final class CalendarViewController: UIViewController
         result.registerClass(FKCalendarViewDateCell.self, forCellWithReuseIdentifier: FKCalendarViewDateCell.cellIdentifier)
         return result
     }()
+    public lazy var headerView: FKCalendarHeaderView = {
+        let result: FKCalendarHeaderView = FKCalendarHeaderView(frame: CGRect(x: 0.0, y: -88.0, width: self.view.frame.size.width, height: 88.0))
+        return result
+    }()
     private lazy var closeButton: UIBarButtonItem = {
         let result: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("close", comment: "close"), style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.onCloseButtonDidTapped(_:)))
         return result
     }()
+    
+    public convenience init(date: NSDate)
+    {
+        self.init()
+        defer {
+            self.date = date
+        }
+    }
 }
 
 extension CalendarViewController
@@ -32,8 +53,11 @@ extension CalendarViewController
         super.loadView()
         
         self.navigationItem.leftBarButtonItem = self.closeButton
-        self.view.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
         self.view.addSubview(self.calendarView)
+        self.calendarView.contentInset = UIEdgeInsets(top: 88.0, left: 0.0, bottom: 0.0, right: 0.0)
+        self.calendarView.addSubview(self.headerView)
+        
+        self.headerView.dateLabel.text = self.date.stringWithFormat("yyyy/MM")
     }
     
     public override func viewWillLayoutSubviews() {
@@ -45,8 +69,8 @@ extension CalendarViewController
 
 extension CalendarViewController: FKCalendarViewDelegate
 {
-    public func dequeueReusableWeekdayCellCollectionView(collectionView: UICollectionView, indexPath: NSIndexPath, weekDay: FKCalendarViewWeekday) -> UICollectionViewCell {
-        guard let cell: FKCalendarViewWeekCell = collectionView.dequeueReusableCellWithReuseIdentifier(FKCalendarViewWeekCell.cellIdentifier, forIndexPath: indexPath) as? FKCalendarViewWeekCell else
+    public func dequeueReusableWeekdayCellWithCalendarView(calendarView: FKCalendarView, indexPath: NSIndexPath, weekDay: FKCalendarViewWeekday) -> UICollectionViewCell {
+        guard let cell: FKCalendarViewWeekCell = calendarView.dequeueReusableCellWithReuseIdentifier(FKCalendarViewWeekCell.cellIdentifier, forIndexPath: indexPath) as? FKCalendarViewWeekCell else
         {
             fatalError("FKCalendarWeekdayCell initialize failed")
         }
@@ -54,8 +78,8 @@ extension CalendarViewController: FKCalendarViewDelegate
         return cell
     }
     
-    public func dequeueReusableDateCellWithCollectionView(collectionView: UICollectionView, indexPath: NSIndexPath, date: NSDate) -> UICollectionViewCell {
-        guard let cell: FKCalendarViewDateCell = collectionView.dequeueReusableCellWithReuseIdentifier(FKCalendarViewDateCell.cellIdentifier, forIndexPath: indexPath) as? FKCalendarViewDateCell else
+    public func dequeueReusableDateCellWithCalendarView(calendarView: FKCalendarView, indexPath: NSIndexPath, date: NSDate) -> UICollectionViewCell {
+        guard let cell: FKCalendarViewDateCell = calendarView.dequeueReusableCellWithReuseIdentifier(FKCalendarViewDateCell.cellIdentifier, forIndexPath: indexPath) as? FKCalendarViewDateCell else
         {
             fatalError("FKCalendarDateCell initialize failed")
         }

@@ -192,7 +192,7 @@ extension MainViewController: MainViewControllerEvents
     }
     
     @objc private func onCalendarButtonDidTapped(button: UIButton) {
-        let calendarViewController: CalendarViewController = CalendarViewController()
+        let calendarViewController: CalendarViewController = CalendarViewController(date: NSDate())
         let navigationController: UINavigationController = UINavigationController(rootViewController: calendarViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
@@ -384,7 +384,7 @@ extension MainViewController
             if #available(iOS 9, *)
             {
                 let safariViewController: SFSafariViewController = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
-                self.navigationController?.pushViewController(safariViewController, animated: true)
+                self.presentViewController(safariViewController, animated: true, completion: nil)
             } else
             {
                 let browserViewController :BrowserViewController = BrowserViewController(url: url)

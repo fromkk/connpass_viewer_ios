@@ -144,6 +144,7 @@ public final class MonthViewController: UIViewController
         result.calendarDelegate = self
         result.registerClass(FKCalendarViewWeekCell.self, forCellWithReuseIdentifier: FKCalendarViewWeekCell.cellIdentifier)
         result.registerClass(FKCalendarViewDateCell.self, forCellWithReuseIdentifier: FKCalendarViewDateCell.cellIdentifier)
+        result.registerClass(FKCalendarSelectionFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: FKCalendarSelectionFooterView.viewIdentifier)
         return result
     }()
     public lazy var headerView: FKCalendarHeaderView = {
@@ -213,7 +214,17 @@ extension MonthViewController: FKCalendarViewDelegate
         {
             fatalError("FKCalendarViewDateCell get failed")
         }
-        
-        
+    }
+    
+    public func dequeueReusableSectionFooterWithCalendarView(calendarView: FKCalendarView, indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard let view: FKCalendarSelectionFooterView = calendarView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: FKCalendarSelectionFooterView.viewIdentifier, forIndexPath: indexPath) as? FKCalendarSelectionFooterView else
+        {
+            return FKCalendarSelectionFooterView()
+        }
+        return view
+    }
+    
+    public func sectionFooterSizeWithCalendarView(calendarView: FKCalendarView, section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 1.0)
     }
 }

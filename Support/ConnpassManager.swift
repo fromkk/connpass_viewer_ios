@@ -40,7 +40,7 @@ public protocol ConnpassSearchProtocol
 
 public class ConnpassSearch
 {
-    private let domain :String = "http://connpass.com"
+    private let domain: String = "http://connpass.com"
     private let path: String = "/api/v1/event/"
     private var queries: [String:Querable] = ["count":50, "order": ConnpassOrder.Create.rawValue]
     public var queryString: String {
@@ -230,7 +230,7 @@ public struct ConnpassEvent: Mappable
     var hashTag: String = ""
     var startedAt: String = ""
     var endedAt: String = ""
-    var limit:Int = 0
+    var limit: Int = 0
     var eventType: String = ""
     var series: ConnpassSeries?
     var address: String = ""

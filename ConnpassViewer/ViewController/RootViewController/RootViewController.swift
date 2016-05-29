@@ -187,8 +187,7 @@ extension MainViewController: MainViewControllerEvents
         searchViewController.delegate = self
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         navigationController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        self.presentViewController(navigationController
-            , animated: true, completion: nil)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     @objc private func onCalendarButtonDidTapped(button: UIButton) {
@@ -234,7 +233,7 @@ extension MainViewController: SearchViewControllerDelegate
         
         let realm: Realm = Realm.sharedRealm()
         do {
-            let history :History = History()
+            let history: History = History()
             history.word = searchText
             try realm.write({
                 realm.add(history)
@@ -322,8 +321,7 @@ extension MainViewController
     public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: ConnpassEventListCell = tableView.dequeueReusableEventListCell(forIndexPath: indexPath)
         cell.event = nil
-        if self.event?.events.count ?? 0 > indexPath.row
-        , let event: ConnpassEvent = self.event?.events[indexPath.row]
+        if self.event?.events.count ?? 0 > indexPath.row, let event: ConnpassEvent = self.event?.events[indexPath.row]
         {
             cell.event = event
         }
@@ -387,7 +385,7 @@ extension MainViewController
                 self.presentViewController(safariViewController, animated: true, completion: nil)
             } else
             {
-                let browserViewController :BrowserViewController = BrowserViewController(url: url)
+                let browserViewController: BrowserViewController = BrowserViewController(url: url)
                 self.navigationController?.pushViewController(browserViewController, animated: true)
             }
         }

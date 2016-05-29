@@ -10,7 +10,7 @@ import Foundation
 
 private struct GoogleMapsKey
 {
-    let ApiKey :String = "AIzaSyB6Vk3M-UCkzlxqyF8pGG4sdmWgOBKCoH8"
+    let ApiKey: String = "AIzaSyB6Vk3M-UCkzlxqyF8pGG4sdmWgOBKCoH8"
 }
 
 private enum GoogleMapsApi: String
@@ -86,11 +86,7 @@ public struct GoogleMapsResult
         self.addressComponents = addressComponents.flatMap {
             GoogleMapsAddressComponent(dictionary: $0)
         }
-        guard let formattedAddress: String = dictionary["formatted_address"] as? String,
-            tmp: [String:AnyObject] = dictionary["geometry"] as? [String:AnyObject],
-            geometry: GoogleMapsGeometry = GoogleMapsGeometry(dictionary: tmp),
-            placeId: String = dictionary["place_id"] as? String,
-            types: [String] = dictionary["types"] as? [String]
+        guard let formattedAddress: String = dictionary["formatted_address"] as? String, tmp: [String:AnyObject] = dictionary["geometry"] as? [String:AnyObject], geometry: GoogleMapsGeometry = GoogleMapsGeometry(dictionary: tmp), placeId: String = dictionary["place_id"] as? String, types: [String] = dictionary["types"] as? [String]
             else
         {
             return nil
@@ -109,9 +105,7 @@ public struct GoogleMapsAddressComponent
     public var types: [String]
     public init?(dictionary: [String:AnyObject]?)
     {
-        guard let longName: String = dictionary?["long_name"] as? String,
-        shortName: String = dictionary?["short_name"] as? String,
-        types: [String] = dictionary?["types"] as? [String]
+        guard let longName: String = dictionary?["long_name"] as? String, shortName: String = dictionary?["short_name"] as? String, types: [String] = dictionary?["types"] as? [String]
         else
         {
             return nil
@@ -127,13 +121,9 @@ public struct GoogleMapsGeometry
     public var location: GoogleMapsLocation
     public var locationType: String
     public var viewport: [String:GoogleMapsLocation]
-    public init?(dictionary: [String:AnyObject]?)
+    public init?(dictionary: [String: AnyObject]?)
     {
-        guard let location: GoogleMapsLocation = GoogleMapsLocation(dictionary: dictionary?["location"] as? [String:AnyObject])
-        , locationType: String = dictionary?["location_type"] as? String
-        , viewport: [String:AnyObject] = dictionary?["viewport"] as? [String:AnyObject]
-        , northeast: GoogleMapsLocation = GoogleMapsLocation(dictionary: viewport["northeast"] as? [String:AnyObject])
-        , southwest: GoogleMapsLocation = GoogleMapsLocation(dictionary: viewport["southwest"] as? [String:AnyObject])
+        guard let location: GoogleMapsLocation = GoogleMapsLocation(dictionary: dictionary?["location"] as? [String:AnyObject]), locationType: String = dictionary?["location_type"] as? String, viewport: [String:AnyObject] = dictionary?["viewport"] as? [String:AnyObject], northeast: GoogleMapsLocation = GoogleMapsLocation(dictionary: viewport["northeast"] as? [String:AnyObject]), southwest: GoogleMapsLocation = GoogleMapsLocation(dictionary: viewport["southwest"] as? [String:AnyObject])
          else
         {
             return nil
@@ -152,8 +142,7 @@ public struct GoogleMapsLocation
     public var lng: Double
     public init?(dictionary: [String:AnyObject]?)
     {
-        guard let lat: Double = dictionary?["lat"] as? Double,
-            lng: Double = dictionary?["lng"] as? Double else
+        guard let lat: Double = dictionary?["lat"] as? Double, lng: Double = dictionary?["lng"] as? Double else
         {
             return nil
         }

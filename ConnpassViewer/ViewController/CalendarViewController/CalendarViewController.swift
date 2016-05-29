@@ -1,5 +1,5 @@
 //
-//  CalendarViewController.swift
+//  MonthViewController.swift
 //  ConnpassViewer
 //
 //  Created by Kazuya Ueoka on 2016/05/28.
@@ -10,6 +10,123 @@ import UIKit
 import FKCalendarView
 
 public final class CalendarViewController: UIViewController
+{
+    public convenience init(date: NSDate) {
+        self.init()
+        
+        defer {
+            self.date = date
+            if let prevDate: NSDate = self.date.prevMonth()
+            {
+                self.prevMonthViewController.date = prevDate
+            }
+            if let forwardDate: NSDate = self.date.forwardMonth()
+            {
+                self.forwardMonthViewController.date = forwardDate
+            }
+        }
+    }
+    
+    public var date: NSDate = NSDate()
+    public lazy var scrollView: UIScrollView = {
+        let result: UIScrollView = UIScrollView()
+        result.pagingEnabled = true
+        result.showsVerticalScrollIndicator = false
+        result.showsHorizontalScrollIndicator = false
+        result.backgroundColor = UIColor.whiteColor()
+        return result
+    }()
+    public lazy var prevMonthViewController: MonthViewController = {
+        let components: NSDateComponents = NSDateComponents()
+        components.year = self.date.year
+        components.month = self.date.month - 1
+        components.day = 1
+        let date: NSDate? = NSCalendar.sharedCalendar.dateFromComponents(components)
+        
+        let result: MonthViewController = MonthViewController(date: date ?? NSDate())
+        return result
+    }()
+    
+    public lazy var currentMonthViewController: MonthViewController = {
+        let result: MonthViewController = MonthViewController(date: self.date)
+        return result
+    }()
+    
+    public lazy var forwardMonthViewController: MonthViewController = {
+        let components: NSDateComponents = NSDateComponents()
+        components.year = self.date.year
+        components.month = self.date.month + 1
+        components.day = 1
+        let date: NSDate? = NSCalendar.sharedCalendar.dateFromComponents(components)
+        
+        let result: MonthViewController = MonthViewController(date: date ?? NSDate())
+        return result
+    }()
+    
+    private func addMonthViewController(monthViewController: MonthViewController)
+    {
+        self.addChildViewController(monthViewController)
+        self.scrollView.addSubview(monthViewController.view)
+        monthViewController.didMoveToParentViewController(self)
+    }
+    
+    private lazy var closeButton: UIBarButtonItem = {
+        let result: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("close", comment: "close"), style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.onCloseButtonDidTapped(_:)))
+        return result
+    }()
+}
+
+public extension CalendarViewController
+{
+    public override func loadView() {
+        super.loadView()
+        
+        self.navigationItem.leftBarButtonItem = self.closeButton
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(self.scrollView)
+        self.addMonthViewController(self.prevMonthViewController)
+        self.addMonthViewController(self.currentMonthViewController)
+        self.addMonthViewController(self.forwardMonthViewController)
+        
+        self.layout()
+        self.scrollView.contentOffset = CGPoint(x: self.scrollView.frame.size.width, y: self.scrollView.contentInset.top)
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.layout()
+    }
+    
+    private func layout() -> Void
+    {
+        var frame: CGRect = self.view.bounds
+        self.scrollView.frame = frame
+        self.prevMonthViewController.view.frame = frame
+        
+        frame.origin.x += frame.size.width
+        self.currentMonthViewController.view.frame = frame
+        
+        frame.origin.x += frame.size.width
+        self.forwardMonthViewController.view.frame = frame
+        
+        self.scrollView.contentSize = CGSize(width: frame.size.width * 3.0, height: frame.size.height - self.scrollView.contentInset.top - self.scrollView.contentInset.bottom)
+    }
+}
+
+private protocol CalendarViewControllerEvents
+{
+    func onCloseButtonDidTapped(button: UIBarButtonItemStyle) -> Void
+}
+
+extension CalendarViewController: CalendarViewControllerEvents
+{
+    @objc private func onCloseButtonDidTapped(button: UIBarButtonItemStyle) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+public final class MonthViewController: UIViewController
 {
     public var date: NSDate = NSDate() {
         didSet {
@@ -33,11 +150,6 @@ public final class CalendarViewController: UIViewController
         let result: FKCalendarHeaderView = FKCalendarHeaderView(frame: CGRect(x: 0.0, y: -88.0, width: self.view.frame.size.width, height: 88.0))
         return result
     }()
-    private lazy var closeButton: UIBarButtonItem = {
-        let result: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("close", comment: "close"), style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.onCloseButtonDidTapped(_:)))
-        return result
-    }()
-    
     public convenience init(date: NSDate)
     {
         self.init()
@@ -47,12 +159,12 @@ public final class CalendarViewController: UIViewController
     }
 }
 
-extension CalendarViewController
+extension MonthViewController
 {
     public override func loadView() {
         super.loadView()
         
-        self.navigationItem.leftBarButtonItem = self.closeButton
+        self.view.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.calendarView)
         self.calendarView.contentInset = UIEdgeInsets(top: 88.0, left: 0.0, bottom: 0.0, right: 0.0)
         self.calendarView.addSubview(self.headerView)
@@ -67,7 +179,7 @@ extension CalendarViewController
     }
 }
 
-extension CalendarViewController: FKCalendarViewDelegate
+extension MonthViewController: FKCalendarViewDelegate
 {
     public func dequeueReusableWeekdayCellWithCalendarView(calendarView: FKCalendarView, indexPath: NSIndexPath, weekDay: FKCalendarViewWeekday) -> UICollectionViewCell {
         guard let cell: FKCalendarViewWeekCell = calendarView.dequeueReusableCellWithReuseIdentifier(FKCalendarViewWeekCell.cellIdentifier, forIndexPath: indexPath) as? FKCalendarViewWeekCell else
@@ -103,17 +215,5 @@ extension CalendarViewController: FKCalendarViewDelegate
         }
         
         
-    }
-}
-
-private protocol CalendarViewControllerEvents
-{
-    func onCloseButtonDidTapped(button: UIBarButtonItemStyle) -> Void
-}
-
-extension CalendarViewController: CalendarViewControllerEvents
-{
-    @objc private func onCloseButtonDidTapped(button: UIBarButtonItemStyle) {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

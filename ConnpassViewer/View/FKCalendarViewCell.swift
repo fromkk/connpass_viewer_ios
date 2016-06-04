@@ -17,7 +17,7 @@ class FKCalendarViewWeekCell: UICollectionViewCell
         result.font = UIFont.systemFontOfSize(9.0)
         result.layer.masksToBounds = true
         result.layer.cornerRadius = 6.0
-        result.backgroundColor = ConnpassColor.lightColor
+        result.backgroundColor = UIColor.clearColor()
         result.textColor = ConnpassColor.textColor
         result.numberOfLines = 1
         return result

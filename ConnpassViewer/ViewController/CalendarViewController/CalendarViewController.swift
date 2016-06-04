@@ -9,6 +9,7 @@
 import UIKit
 import FKCalendarView
 
+//MARK: CalendarViewController
 public final class CalendarViewController: UIViewController
 {
     public convenience init(date: NSDate) {
@@ -34,6 +35,7 @@ public final class CalendarViewController: UIViewController
         result.showsVerticalScrollIndicator = false
         result.showsHorizontalScrollIndicator = false
         result.backgroundColor = UIColor.whiteColor()
+        result.delegate = self
         return result
     }()
     public lazy var prevMonthViewController: MonthViewController = {
@@ -44,11 +46,13 @@ public final class CalendarViewController: UIViewController
         let date: NSDate? = NSCalendar.sharedCalendar.dateFromComponents(components)
         
         let result: MonthViewController = MonthViewController(date: date ?? NSDate())
+        result.delegate = self
         return result
     }()
     
     public lazy var currentMonthViewController: MonthViewController = {
         let result: MonthViewController = MonthViewController(date: self.date)
+        result.delegate = self
         return result
     }()
     
@@ -60,6 +64,7 @@ public final class CalendarViewController: UIViewController
         let date: NSDate? = NSCalendar.sharedCalendar.dateFromComponents(components)
         
         let result: MonthViewController = MonthViewController(date: date ?? NSDate())
+        result.delegate = self
         return result
     }()
     
@@ -126,6 +131,92 @@ extension CalendarViewController: CalendarViewControllerEvents
     }
 }
 
+extension CalendarViewController: UIScrollViewDelegate
+{
+    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.scrollViewDidEndScrolling(scrollView)
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        self.scrollViewDidEndScrolling(scrollView)
+    }
+    
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.scrollViewDidEndScrolling(scrollView)
+    }
+    
+    private func scrollViewDidEndScrolling(scrollView: UIScrollView)
+    {
+        if scrollView.tracking || scrollView.dragging || scrollView.decelerating
+        {
+            return
+        }
+        
+        if scrollView.contentOffset.x == self.scrollView.frame.size.width
+        {
+            return
+        }
+        
+        if 0 == scrollView.contentOffset.x
+        {
+            scrollView.contentOffset.x = self.scrollView.frame.size.width
+            if let date: NSDate = self.prevMonthViewController.date.prevMonth()
+            {
+                self.prevMonthViewController.date = date
+            }
+            
+            if let date: NSDate = self.currentMonthViewController.date.prevMonth()
+            {
+                self.currentMonthViewController.date = date
+            }
+            
+            if let date: NSDate = self.forwardMonthViewController.date.prevMonth()
+            {
+                self.forwardMonthViewController.date = date
+            }
+        } else if scrollView.contentOffset.x == scrollView.frame.size.width * 2.0
+        {
+            scrollView.contentOffset.x = self.scrollView.frame.size.width
+            if let date: NSDate = self.prevMonthViewController.date.forwardMonth()
+            {
+                self.prevMonthViewController.date = date
+            }
+            
+            if let date: NSDate = self.currentMonthViewController.date.forwardMonth()
+            {
+                self.currentMonthViewController.date = date
+            }
+            
+            if let date: NSDate = self.forwardMonthViewController.date.forwardMonth()
+            {
+                self.forwardMonthViewController.date = date
+            }
+        }
+    }
+}
+
+@objc public protocol MonthViewControllerDelegate : class
+{
+    func monthViewControllerPrev(monthViewController: MonthViewController) -> Void
+    func monthViewControllerForward(monthViewController: MonthViewController) -> Void
+    func monthViewController(monthViewController: MonthViewController, didSelectedDate date: NSDate) -> Void
+}
+
+extension CalendarViewController: MonthViewControllerDelegate {
+    public func monthViewControllerPrev(monthViewController: MonthViewController) {
+        self.scrollView.setContentOffset(CGPoint(x: 0.0, y: self.scrollView.contentOffset.y), animated: true)
+    }
+    
+    public func monthViewControllerForward(monthViewController: MonthViewController) {
+        self.scrollView.setContentOffset(CGPoint(x: self.scrollView.frame.size.width * 2.0, y: self.scrollView.contentOffset.y), animated: true)
+    }
+    
+    public func monthViewController(monthViewController: MonthViewController, didSelectedDate date: NSDate) {
+        print(date)
+    }
+}
+
+//MARK: MonthViewController
 public final class MonthViewController: UIViewController
 {
     public var date: NSDate = NSDate() {
@@ -136,6 +227,8 @@ public final class MonthViewController: UIViewController
             }
             
             self.headerView.dateLabel.text = self.date.stringWithFormat("yyyy/MM")
+            self.calendarView.date = self.date
+            self.calendarView.reloadData()
         }
     }
     public lazy var calendarView: FKCalendarView = {
@@ -149,8 +242,11 @@ public final class MonthViewController: UIViewController
     }()
     public lazy var headerView: FKCalendarHeaderView = {
         let result: FKCalendarHeaderView = FKCalendarHeaderView(frame: CGRect(x: 0.0, y: -88.0, width: self.view.frame.size.width, height: 88.0))
+        result.prevButton.addTarget(self, action: #selector(self.onPrevButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        result.forwardButton.addTarget(self, action: #selector(self.onForwardButtonDidTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return result
     }()
+    public weak var delegate: MonthViewControllerDelegate?
     public convenience init(date: NSDate)
     {
         self.init()
@@ -197,7 +293,7 @@ extension MonthViewController: FKCalendarViewDelegate
             fatalError("FKCalendarDateCell initialize failed")
         }
         cell.dateLabel.text = String(date.day)
-        if date.month == self.date.month
+        if date.month == self.date.month && date.year == self.date.year
         {
             cell.dateLabel.textColor = ConnpassColor.textColor
             cell.userInteractionEnabled = true
@@ -210,10 +306,7 @@ extension MonthViewController: FKCalendarViewDelegate
     }
     
     public func calendarView(calendarView: FKCalendarView, didSelectDayCell cell: UICollectionViewCell, date: NSDate) {
-        guard let cell: FKCalendarViewDateCell = cell as? FKCalendarViewDateCell else
-        {
-            fatalError("FKCalendarViewDateCell get failed")
-        }
+        self.delegate?.monthViewController(self, didSelectedDate: date)
     }
     
     public func dequeueReusableSectionFooterWithCalendarView(calendarView: FKCalendarView, indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -226,5 +319,20 @@ extension MonthViewController: FKCalendarViewDelegate
     
     public func sectionFooterSizeWithCalendarView(calendarView: FKCalendarView, section: Int) -> CGSize {
         return CGSize(width: self.view.frame.size.width, height: 1.0)
+    }
+}
+
+private protocol MonthViewControllerEvents {
+    func onPrevButtonDidTapped(button: UIButton) -> Void
+    func onForwardButtonDidTapped(button: UIButton) -> Void
+}
+
+extension MonthViewController: MonthViewControllerEvents {
+    @objc private func onPrevButtonDidTapped(button: UIButton) {
+        self.delegate?.monthViewControllerPrev(self)
+    }
+    
+    @objc private func onForwardButtonDidTapped(button: UIButton) {
+        self.delegate?.monthViewControllerForward(self)
     }
 }
